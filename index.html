@@ -173,6 +173,43 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
 .footer{text-align:center;padding:36px 16px;color:var(--text-muted);font-size:11px;opacity:0.45;letter-spacing:1px}
 .footer .seal{display:inline-block;border:2px solid var(--cinnabar);color:var(--cinnabar);padding:5px 10px;font-family:'Ma Shan Zheng',cursive;font-size:14px;transform:rotate(-4deg);margin-bottom:12px;opacity:0.5}
 
+/* ===== 每日黄历 ===== */
+.daily-section{opacity:0;transform:translateY(20px);animation:secIn 0.9s ease-out forwards;animation-delay:0.2s}
+.daily-header{text-align:center;margin-bottom:20px}
+.daily-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--cinnabar-dark,#8b2020);color:var(--cinnabar-light);padding:3px 18px;font-size:11px;letter-spacing:4px;margin-bottom:12px;border-radius:2px}
+.daily-date{font-family:'Ma Shan Zheng',cursive;font-size:24px;color:var(--gold-light);margin-top:8px;letter-spacing:2px}
+.daily-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:500px){.daily-grid{grid-template-columns:repeat(2,1fr)}}
+.daily-item{background:linear-gradient(145deg,rgba(42,34,28,0.96),rgba(26,20,16,0.99));border:1px solid rgba(201,168,76,0.12);border-radius:10px;padding:20px 14px;text-align:center;cursor:pointer;transition:all 0.4s;position:relative;overflow:hidden}
+.daily-item:hover{border-color:rgba(201,168,76,0.3);box-shadow:0 0 25px rgba(201,168,76,0.06);transform:translateY(-2px)}
+.daily-item:active{transform:scale(0.98)}
+.daily-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cinnabar),var(--gold))}
+.daily-item-icon{font-size:36px;margin-bottom:8px;display:block}
+.daily-item-title{font-family:'Ma Shan Zheng',cursive;font-size:16px;color:var(--gold-light);margin-bottom:6px;letter-spacing:1px}
+.daily-item-desc{font-size:12px;color:var(--text-muted);line-height:1.6}
+.daily-item-tag{display:inline-block;padding:2px 10px;border-radius:3px;font-size:11px;margin-top:8px}
+.daily-item-tag.good{background:rgba(76,175,80,0.15);color:#81c784;border:1px solid rgba(76,175,80,0.25)}
+.daily-item-tag.bad{background:rgba(244,67,54,0.15);color:#ef9a9a;border:1px solid rgba(244,67,54,0.25)}
+.daily-item-tag.neutral{background:rgba(255,193,7,0.15);color:#ffd54f;border:1px solid rgba(255,193,7,0.25)}
+
+/* ===== 每日黄历详情 ===== */
+.daily-detail-section{opacity:0;transition:opacity 0.8s}
+.daily-detail-section.active{display:block;opacity:1}
+.daily-detail-card{background:linear-gradient(145deg,rgba(42,34,28,0.96),rgba(26,20,16,0.99));border:1px solid rgba(201,168,76,0.12);border-radius:10px;padding:28px 24px;margin-bottom:20px;opacity:0;transform:translateY(18px);animation:cardIn 0.7s ease-out forwards;position:relative;overflow:hidden}
+.daily-detail-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),var(--cinnabar),var(--gold));opacity:0.6}
+.yiji-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.yiji-item{padding:12px;border-radius:7px;text-align:center;font-size:13px;line-height:1.7}
+.yiji-item.yi{background:rgba(76,175,80,0.06);border:1px solid rgba(76,175,80,0.15);color:#81c784}
+.yiji-item.ji{background:rgba(244,67,54,0.06);border:1px solid rgba(244,67,54,0.15);color:#ef9a9a}
+.lucky-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.lucky-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:16px;font-size:12px;border:1px solid rgba(201,168,76,0.2);color:var(--gold-light);background:rgba(201,168,76,0.05)}
+.hourly-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+@media(max-width:500px){.hourly-grid{grid-template-columns:repeat(2,1fr)}}
+.hourly-item{padding:8px 6px;border-radius:6px;text-align:center;font-size:11px;border:1px solid rgba(201,168,76,0.08);background:rgba(61,50,42,0.2)}
+.hourly-item .h-name{font-size:13px;font-weight:700;color:var(--gold-light)}
+.hourly-item .h-time{font-size:10px;color:var(--text-muted);margin:2px 0}
+.hourly-item .h-luck{margin-top:4px}
+
 /* ===== 响应式 ===== */
 @media(max-width:600px){
   .main{padding:16px 10px 40px}
@@ -218,6 +255,17 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
     <p class="header-sub">资深命理大师</p>
     <p class="header-desc">传承千年易学智慧，以五行生克为基，四柱八字为纲，为你推演命理玄机，指点人生迷津。</p>
   </header>
+
+  <div class="divider"><span class="divider-line l"></span><span class="divider-icon">◈</span><span class="divider-line r"></span></div>
+
+  <!-- ===== 每日黄历 ===== -->
+  <div class="daily-section" id="dailySection">
+    <div class="daily-header">
+      <div class="daily-badge">✦ 今 日 黄 历 ✦</div>
+      <div class="daily-date" id="dailyDate"></div>
+    </div>
+    <div class="daily-grid" id="dailyGrid"></div>
+  </div>
 
   <div class="divider"><span class="divider-line l"></span><span class="divider-icon">◈</span><span class="divider-line r"></span></div>
 
@@ -332,6 +380,13 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
         <button class="btn btn-outline" id="payLaterBtn" style="padding:10px 20px;font-size:16px;max-width:200px;">先不付了</button>
       </div>
     </div>
+  </div>
+
+  <!-- ===== 每日黄历详情 ===== -->
+  <div class="daily-detail-section" id="dailyDetailSection" style="display:none;">
+    <div class="result-header"><h2>每日黄历详解</h2><p id="dailyDetailDate"></p></div>
+    <div id="dailyDetailContent"></div>
+    <button class="btn btn-outline" id="dailyBackBtn" style="max-width:260px;">◈ 返回首页 ◈</button>
   </div>
 
   <!-- ===== 结果区域 ===== -->
@@ -516,8 +571,164 @@ document.addEventListener('DOMContentLoaded',function(){
  document.getElementById('payConfirmBtn').style.display='none';
  document.getElementById('payLaterBtn').style.display='none';
 
+ // 每日黄历返回按钮
+ document.getElementById('dailyBackBtn').addEventListener('click',function(){hideDailyDetail()});
+
  // 先不付了 → 回到问题
-  // 重新测算
+   // ===== 每日黄历 =====
+ (function(){
+  var WEEk_CN=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+  var JIE_QI=['小寒','大寒','立春','雨水','惊蛰','春分','清明','谷雨','立夏','小满','芒种','夏至','小暑','大暑','立秋','处暑','白露','秋分','寒露','霜降','立冬','小雪','大雪','冬至'];
+  var YI_LIST=['祭祀','祈福','求嗣','开光','出行','纳采','冠笄','伐木','修造','动土','起基','上梁','竖柱','开仓','入殓','安葬','破土','启钻','移柩','解除','赴任','纳财','开市','交易','立券','挂匾','纳畜','栽种','牧养','破屋','坏垣','求医','治病','开仓','经络','塞穴','修饰垣墙'];
+  var JI_LIST=['诸事不宜'];
+  var JIE_QI_DAYS={0:'小寒',15:'小寒',1:'大寒',16:'大寒',3:'立春',18:'雨水',5:'惊蛰',20:'春分',4:'清明',19:'谷雨',5:'立夏',20:'小满',5:'芒种',21:'夏至',6:'小暑',22:'大暑',7:'立秋',22:'处暑',7:'白露',22:'秋分',8:'寒露',23:'霜降',7:'立冬',22:'小雪',7:'大雪',21:'冬至'};
+  var WX_ATTR={0:'水',1:'水',2:'木',3:'木',4:'土',5:'土',6:'火',7:'火',8:'土',9:'土',10:'金',11:'金'};
+  var CHONG_SX={'子':'午马','丑':'未羊','寅':'申猴','卯':'酉鸡','辰':'戌狗','巳':'亥猪','午':'子鼠','未':'丑牛','申':'寅虎','酉':'卯兔','戌':'辰龙','亥':'巳蛇'};
+  var SHA_DIR={'子':'南','丑':'东','寅':'北','卯':'西','辰':'南','巳':'东','午':'北','未':'西','申':'南','酉':'东','戌':'北','亥':'西'};
+  var COLORS=['大红色','酒红色','橙色','金黄色','青色','翠绿色','碧蓝色','藏蓝色','紫色','粉色','棕色','米白色'];
+  var DIRS=['正东','东南','正南','西南','正西','西北','正北','东北'];
+
+  function pseudoHash(n,s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}return((h%Math.abs(n))+Math.abs(n))%n}
+  function shuffle(arr,seed){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=pseudoHash(i+1,seed)%a.length;var t=a[i];a[i]=a[j];a[j]=t}return a}
+  function pickN(arr,n,seed){return shuffle(arr,seed).slice(0,n)}
+  function getLuckyNum(seed){var nums=[];for(var i=0;i<4;i++){nums.push(pseudoHash(10,seed+'n'+i)+1);nums.push(pseudoHash(10,seed+'n'+(i+10))*5+5)}return nums.slice(0,4)}
+
+  function generateDailyAlmanac(){
+   var now=new Date(),y=now.getFullYear(),m=now.getMonth()+1,d=now.getDate(),h=now.getHours();
+   var yGZ=calcYearGZ(y),mGZ=calcMonthGZ(y,m),dGZ=calcDayGZ(y,m,d);
+   var dayZhi=dGZ.zhi,dayZhiIdx=DI_ZHI.indexOf(dayZhi);
+   var curSC='';for(var k in SHI_CHEN){if(k!=='unknown'){var p=k.split('-'),s=parseInt(p[0],10),e=parseInt(p[1],10);if(s===23){if(h>=23)curSC=k}else if(e===1){if(h===0)curSC=k}else if(h>=s&&h<e)curSC=k}}
+   var seed=y+'-'+m+'-'+d;
+   var yis=pickN(YI_LIST,6,seed+'yi');
+   var chong=CHONG_SX[dayZhi]||'';
+   var sha=SHA_DIR[dayZhi]||'';
+   var luckyN=getLuckyNum(seed);
+   var luckyC=shuffle(COLORS,seed+'c').slice(0,3);
+   var luckyD=shuffle(DIRS,seed+'d').slice(0,2);
+   var sx=getSX(y);
+
+   // 今日总运势
+   var wxSeed=pseudoHash(5,seed+'wx');
+   var wxNames=['金','木','水','火','土'];
+   var todayWX=wxNames[wxSeed];
+   var dwx=WU_XING_GAN[dGZ.gan];
+   var luckLevel=5;
+   if(todayWX===dwx||WU_XING_SHENG[todayWX]===dwx)luckLevel=4;
+   else if(WU_XING_KE[todayWX]===dwx||todayWX===WU_XING_KE[dwx])luckLevel=2;
+   else luckLevel=3;
+   var stars=['','★','★★','★★★','★★★★','★★★★★'];
+   var luckNames=['','大凶','小凶','平','小吉','大吉'];
+
+   // 时辰吉凶
+   var scList=[];var scKeys=['23-01','01-03','03-05','05-07','07-09','09-11','11-13','13-15','15-17','17-19','19-21','21-23'];
+   for(var i=0;i<scKeys.length;i++){var sk=scKeys[i],sc=SHI_CHEN[sk],scZI=sc.zhi,scZIdx=DI_ZHI.indexOf(scZI);
+   var scLuck=pseudoHash(3,seed+'sc'+i);if(scLuck===0)scLuck=1;
+   var scLabel=scLuck===1?'凶':scLuck===2?'平':'吉';
+   var scColor=scLuck===1?'#ef9a9a':scLuck===2?'#ffd54f':'#81c784';
+   scList.push({name:sc.name,zhi:scZI,time:sk.replace('-',':')+'-'+(parseInt(sk.split('-')[1],10)===1?'23:59':sk.split('-')[1]+':59'),label:scLabel,color:scColor})}
+
+   // 12时辰吉凶
+   var hourlyHTML='<div class="hourly-grid">';
+   for(var i=0;i<scList.length;i++){var sc=scList[i],isCur=(sk===curSC);
+   hourlyHTML+='<div class="hourly-item"'+(isCur?' style="border-color:var(--gold);background:rgba(201,168,76,0.08);"':'')+'>';
+   hourlyHTML+='<div class="h-name">'+sc.name+' '+sc.zhi+'</div>';
+   hourlyHTML+='<div class="h-time">'+sc.time+'</div>';
+   hourlyHTML+='<div class="h-luck" style="color:'+sc.color+';"><span class="tag '+(sc.label==='吉'?'tw':sc.label==='凶'?'tf':'te')+'">'+sc.label+'</span></div>';
+   hourlyHTML+='</div>'}
+   hourlyHTML+='</div>';
+
+   return{year:y,month:m,day:d,week:WEEk_CN[now.getDay()],yGZ:yGZ,mGZ:mGZ,dGZ:dGZ,sx:sx,
+   yis:yis,ji:JI_LIST,chong:chong,sha:sha,luckyN:luckyN,luckyC:luckyC,luckyD:luckyD,
+   luckLevel:luckLevel,luckName:luckNames[luckLevel],stars:stars[luckLevel],todayWX:todayWX,
+   scList:scList,hourlyHTML:hourlyHTML,seed:seed};
+  }
+
+  function renderDailySummary(){
+   var data=generateDailyAlmanac();
+   var dateEl=document.getElementById('dailyDate');
+   dateEl.innerHTML=data.year+'年'+data.month+'月'+data.day+'日 '+data.week+'<br><span style="font-size:14px;color:var(--text-muted);">'+data.yGZ.gan+data.yGZ.zhi+'年 '+data.mGZ.gan+data.mGZ.zhi+'月 '+data.dGZ.gan+data.dGZ.zhi+'日</span>';
+
+   var grid=document.getElementById('dailyGrid');
+   var items=[
+    {icon:'☯',title:'今日运势',desc:data.stars+' '+data.luckName,tag:data.luckName,tagClass:data.luckLevel>=4?'good':data.luckLevel<=2?'bad':'neutral'},
+    {icon:'⚡',title:'冲煞',desc:'冲'+data.chong+' 煞'+data.sha,tag:'注意',tagClass:'neutral'},
+    {icon:'🎨',title:'幸运色彩',desc:data.luckyC.join('、'),tag:'',tagClass:''},
+    {icon:'🔢',title:'幸运数字',desc:data.luckyN.join('、'),tag:'',tagClass:''},
+    {icon:'🧭',title:'吉样方位',desc:data.luckyD.join('、'),tag:'',tagClass:''},
+    {icon:'🐾',title:'今日生肖',desc:data.sx+'年',tag:'详情',tagClass:'good'}
+   ];
+   var html='';
+   for(var i=0;i<items.length;i++){var it=items[i];
+    html+='<div class="daily-item"'+(i===5?' onclick="showDailyDetail()"':'')+'>';
+    html+='<span class="daily-item-icon">'+it.icon+'</span>';
+    html+='<div class="daily-item-title">'+it.title+'</div>';
+    html+='<div class="daily-item-desc">'+it.desc+'</div>';
+    if(it.tag)html+='<span class="daily-item-tag '+it.tagClass+'">'+it.tag+'</span>';
+    html+='</div>'}
+   grid.innerHTML=html;
+  }
+
+  window.showDailyDetail=function(){
+   var data=generateDailyAlmanac();
+   document.getElementById('questionSection').style.display='none';
+   document.getElementById('dailySection').style.display='none';
+   document.querySelectorAll('.divider')[0].style.display='none';
+   document.querySelectorAll('.divider')[1].style.display='none';
+   document.getElementById('dailyDetailDate').textContent=data.year+'年'+data.month+'月'+data.day+'日 '+data.week+' | '+data.yGZ.gan+data.yGZ.zhi+'年 '+data.mGZ.gan+data.mGZ.zhi+'月 '+data.dGZ.gan+data.dGZ.zhi+'日';
+
+   var html='';
+   // 1. 宜忌
+   html+='<div class="daily-detail-card" style="animation-delay:0.2s"><div class="res-card-title"><div class="ic">☰</div>今日宜忌</div><div class="res-body">';
+   html+='<div class="yiji-grid"><div class="yiji-item yi"><div style="font-size:14px;color:#81c784;margin-bottom:6px;">宜</div>';for(var i=0;i<data.yis.length;i++)html+='<span>'+data.yis[i]+'</span> ';html+='</div>';
+   html+='<div class="yiji-item ji"><div style="font-size:14px;color:#ef9a9a;margin-bottom:6px;">忌</div>';for(var i=0;i<data.ji.length;i++)html+='<span>'+data.ji[i]+'</span> ';html+='</div></div>';
+   html+='<p>冲：<span class="pill">'+data.chong+'</span> | 煞：<span class="pill">'+data.sha+'</span></p>';
+   html+='</div></div>';
+
+   // 2. 幸运指数
+   html+='<div class="daily-detail-card" style="animation-delay:0.4s"><div class="res-card-title"><div class="ic">✦</div>幸运指南</div><div class="res-body">';
+   html+='<p><b>综合运势</b>：<span style="color:'+(data.luckLevel>=4?'#81c784':data.luckLevel<=2?'#ef9a9a':'#ffd54f')+';">'+data.stars+' '+data.luckName+'</span></p>';
+   html+='<p><b>五行主气</b>：<span class="tag "+WU_XING_COLOR[data.todayWX]+"">'+data.todayWX+'</span></p>';
+   html+='<div class="lucky-row"><b style="color:var(--gold-light);font-size:12px;">幸运色：</b>';for(var i=0;i<data.luckyC.length;i++)html+='<span class="lucky-chip">'+data.luckyC[i]+'</span>';html+='</div>';
+   html+='<div class="lucky-row"><b style="color:var(--gold-light);font-size:12px;">幸运数：</b>';for(var i=0;i<data.luckyN.length;i++)html+='<span class="lucky-chip">'+data.luckyN[i]+'</span>';html+='</div>';
+   html+='<div class="lucky-row"><b style="color:var(--gold-light);font-size:12px;">吉样方位：</b>';for(var i=0;i<data.luckyD.length;i++)html+='<span class="lucky-chip">'+data.luckyD[i]+'</span>';html+='</div>';
+   html+='</div></div>';
+
+   // 3. 十二时辰吉凶
+   html+='<div class="daily-detail-card" style="animation-delay:0.6s"><div class="res-card-title"><div class="ic">⏰</div>十二时辰吉凶</div><div class="res-body">';
+   html+='<p style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">根据今日天干地支推演各时辰吉凶</p>';
+   html+=data.hourlyHTML;
+   html+='</div></div>';
+
+   // 4. 今日开运建议
+   var wx=data.todayWX;
+   var tips={'金':'今日金气旺盛，宜果断行事、理财规划。着白色系衣物，面朝西方。','木':'今日木气旺盛，宜学习进修、规划未来。着绿色系衣物，面朝东方。','水':'今日水气旺盛，宜社交沟通、灵活应变。着黑色系衣物，面朝北方。','火':'今日火气旺盛，宜展现才华、主动出击。着红色系衣物，面朝南方。','土':'今日土气旺盛，宜稳固根基、稳步推进。着黄色系衣物，居中守正。'};
+   html+='<div class="daily-detail-card" style="animation-delay:0.8s"><div class="res-card-title"><div class="ic">☯</div>今日开运</div><div class="res-body">';
+   html+='<p>'+(tips[wx]||tips['土'])+'</p>';
+   html+='<div style="margin-top:14px;padding:14px;background:rgba(201,168,76,0.03);border-radius:7px;border:1px solid rgba(201,168,76,0.06);"><p style="font-size:13px;color:var(--gold-light);text-align:center;">"顺天应时，择吉而行。吉人自有天相。"</p></div>';
+   html+='</div></div>';
+
+   document.getElementById('dailyDetailContent').innerHTML=html;
+   var ds=document.getElementById('dailyDetailSection');ds.style.display='block';
+   setTimeout(function(){ds.classList.add('active')},50);
+   document.querySelector('.daily-detail-section').scrollIntoView({behavior:'smooth',block:'start'});
+  };
+
+  window.hideDailyDetail=function(){
+   document.getElementById('dailyDetailSection').classList.remove('active');
+   setTimeout(function(){
+    document.getElementById('dailyDetailSection').style.display='none';
+    document.getElementById('dailySection').style.display='block';
+    document.getElementById('questionSection').style.display='block';
+    document.querySelectorAll('.divider')[0].style.display='flex';
+    document.querySelectorAll('.divider')[1].style.display='flex';
+    window.scrollTo({top:0,behavior:'smooth'});
+   },300);
+  };
+
+  renderDailySummary();
+ })();
+
+ // 重新测算
  document.getElementById('restartBtn').addEventListener('click',function(){
   document.getElementById('resultSection').classList.remove('active');
   document.getElementById('questionSection').style.display='block';

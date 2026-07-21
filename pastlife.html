@@ -1204,12 +1204,14 @@ function renderResult(name, gender, bazi, wxAnalysis, lives) {
   html += '</p></div>';
 
   html += '<div class="btn-area">';
-  html += '<button class="btn btn-primary" onclick="location.reload()">◈ 再探一次轮回 ◈</button>';
-  html += '<button class="btn btn-outline" onclick="location.href=\'index.html\'">◈ 返回天命阁 ◈</button>';
+  html += '<button class="btn btn-primary" id="replayBtn">◈ 再探一次轮回 ◈</button>';
+  html += '<button class="btn btn-outline" id="backHomeBtn">◈ 返回天命阁 ◈</button>';
   html += '</div>';
   html += '<div class="back-link"><a href="index.html">← 返回首页</a></div>';
 
   document.getElementById('resultSection').innerHTML = html;
+  document.getElementById('replayBtn').onclick = function(){ location.reload(); };
+  document.getElementById('backHomeBtn').onclick = function(){ location.href = 'index.html'; };
 }
 
 // ===== 提交 =====

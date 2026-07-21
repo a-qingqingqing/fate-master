@@ -9,13 +9,12 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--gold:#c9a84c;--gold-light:#e8d48b;--gold-dark:#8a6d2b;--gold-glow:rgba(201,168,76,0.4);--cinnabar:#c23b22;--cinnabar-light:#e85d4a;--cinnabar-glow:rgba(194,59,34,0.3);--ink-black:#1a1410;--ink-dark:#2a221c;--ink-mid:#3d322a;--ink-light:#4d3d32;--text-primary:#f0e6d0;--text-muted:#a89878;--text-dim:#6a5d4a}
 html{scroll-behavior:smooth}
-body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--text-primary);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
 .bg-layer{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2}
 .bg-layer .grad{position:absolute;width:100%;height:100%;background:radial-gradient(ellipse at 20% 50%,rgba(201,168,76,0.07) 0%,transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(194,59,34,0.05) 0%,transparent 55%),radial-gradient(ellipse at 50% 85%,rgba(201,168,76,0.04) 0%,transparent 50%)}
 .bg-layer .pattern{position:absolute;width:100%;height:100%;background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.008) 2px,rgba(255,255,255,0.008) 3px);pointer-events:none}
-.bg-layer .noise{position:absolute;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
 .float-char{position:fixed;font-family:'Ma Shan Zheng',cursive;color:var(--gold);opacity:0.035;font-size:140px;pointer-events:none;z-index:-1;animation:floatDrift 25s ease-in-out infinite}
-.float-char:nth-child(5){top:8%;left:3%;animation-delay:0s}
+.float-char:nth-child(5){top:8%;left:3%}
 .float-char:nth-child(6){top:55%;left:88%;animation-delay:-6s;font-size:170px}
 .float-char:nth-child(7){top:28%;left:92%;animation-delay:-12s;font-size:100px}
 .float-char:nth-child(8){top:78%;left:5%;animation-delay:-18s;font-size:130px}
@@ -52,10 +51,6 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
 .load-txt{font-family:'Ma Shan Zheng',cursive;font-size:22px;color:var(--gold-light);letter-spacing:5px;animation:pulse 1.6s ease-in-out infinite}
 .load-sub{font-size:12px;color:var(--text-muted);margin-top:10px;letter-spacing:2px}
 @keyframes pulse{0%,100%{opacity:0.35}50%{opacity:1}}
-
-/* ===== 轮回结果 ===== */
-.reincarn-section{display:none;opacity:0;transition:opacity 0.8s}
-.reincarn-section.active{display:block;opacity:1}
 .life-timeline{position:relative;padding-left:40px}
 .life-timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--gold),var(--cinnabar),var(--gold),transparent)}
 .life-card{position:relative;margin-bottom:36px;opacity:0;transform:translateY(24px);animation:cardIn 0.7s ease-out forwards}
@@ -85,26 +80,22 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
 .btn-area{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:28px}
 .btn-area .btn{max-width:300px}
 .back-link{text-align:center;margin-top:16px}
-.back-link a{color:var(--text-muted);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.15);padding-bottom:2px;transition:color 0.3s}
+.back-link a{color:var(--text-muted);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.15);padding-bottom:2px}
 .back-link a:hover{color:var(--gold)}
-@media(max-width:500px){.life-details{grid-template-columns:1fr}.header-title{font-size:42px}}
+@media(max-width:500px){.life-details{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="bg-layer"><div class="grad"></div><div class="pattern"></div><div class="noise"></div></div>
+<div class="bg-layer"><div class="grad"></div><div class="pattern"></div></div>
 <div class="float-char">命</div><div class="float-char">缘</div><div class="float-char">轮</div><div class="float-char">回</div>
-
 <div class="main">
   <div class="header">
-    <div class="header-badge">✦ 天 命 阁 ✦</div>
+    <div class="header-badge">天 命 阁</div>
     <div class="header-title">前世轮回<span class="title-deco"></span></div>
     <div class="header-sub">孟婆汤忘前尘事 · 六道轮回续今生缘</div>
-    <div class="header-desc">据传人死后须过奈何桥、饮孟婆汤，方忘却前世种种。然若以八字入卦，或可窥探轮回之一二。请输入您的基本信息，开启五世轮回之旅。</div>
+    <div class="header-desc">据传人死后须过奈何桥、饮孟婆汤，方忘却前世种种。然若以八字入卦，或可窥探轮回之一二。请输入基本信息，开启五世轮回之旅。</div>
   </div>
-
-  <div class="divider"><span class="divider-line l"></span><span class="divider-icon">◈</span><span class="divider-line r"></span></div>
-
-  <!-- ===== 输入区域 ===== -->
+  <div class="divider"><span class="divider-line l"></span><span>◈</span><span class="divider-line r"></span></div>
   <div id="inputSection">
     <div class="input-group">
       <label>姓名</label>
@@ -120,234 +111,211 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
     </div>
     <div class="input-group">
       <label>出生年份（公历）</label>
-      <select id="pYear"></select>
+      <select id="pYear">
+        <option value="">-- 请选择 --</option>
+        <option value="2006">2006年</option><option value="2005">2005年</option><option value="2004">2004年</option><option value="2003">2003年</option><option value="2002">2002年</option><option value="2001">2001年</option><option value="2000">2000年</option><option value="1999">1999年</option><option value="1998">1998年</option><option value="1997">1997年</option><option value="1996">1996年</option><option value="1995">1995年</option><option value="1994">1994年</option><option value="1993">1993年</option><option value="1992">1992年</option><option value="1991">1991年</option><option value="1990">1990年</option><option value="1989">1989年</option><option value="1988">1988年</option><option value="1987">1987年</option><option value="1986">1986年</option><option value="1985">1985年</option><option value="1984">1984年</option><option value="1983">1983年</option><option value="1982">1982年</option><option value="1981">1981年</option><option value="1980">1980年</option><option value="1979">1979年</option><option value="1978">1978年</option><option value="1977">1977年</option><option value="1976">1976年</option><option value="1975">1975年</option><option value="1974">1974年</option><option value="1973">1973年</option><option value="1972">1972年</option><option value="1971">1971年</option><option value="1970">1970年</option><option value="1969">1969年</option><option value="1968">1968年</option><option value="1967">1967年</option><option value="1966">1966年</option><option value="1965">1965年</option><option value="1964">1964年</option><option value="1963">1963年</option><option value="1962">1962年</option><option value="1961">1961年</option><option value="1960">1960年</option><option value="1959">1959年</option><option value="1958">1958年</option><option value="1957">1957年</option><option value="1956">1956年</option><option value="1955">1955年</option><option value="1954">1954年</option><option value="1953">1953年</option><option value="1952">1952年</option><option value="1951">1951年</option><option value="1950">1950年</option><option value="1949">1949年</option><option value="1948">1948年</option><option value="1947">1947年</option><option value="1946">1946年</option><option value="1945">1945年</option><option value="1944">1944年</option><option value="1943">1943年</option><option value="1942">1942年</option><option value="1941">1941年</option><option value="1940">1940年</option>
+      </select>
     </div>
     <div class="input-group">
       <label>出生月份</label>
-      <select id="pMonth"></select>
+      <select id="pMonth">
+        <option value="">-- 请选择 --</option>
+        <option value="1">1月</option><option value="2">2月</option><option value="3">3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option>
+      </select>
     </div>
     <div class="input-group">
       <label>出生日期</label>
-      <select id="pDay"></select>
+      <select id="pDay">
+        <option value="">-- 请选择 --</option>
+        <option value="1">1日</option><option value="2">2日</option><option value="3">3日</option><option value="4">4日</option><option value="5">5日</option><option value="6">6日</option><option value="7">7日</option><option value="8">8日</option><option value="9">9日</option><option value="10">10日</option><option value="11">11日</option><option value="12">12日</option><option value="13">13日</option><option value="14">14日</option><option value="15">15日</option><option value="16">16日</option><option value="17">17日</option><option value="18">18日</option><option value="19">19日</option><option value="20">20日</option><option value="21">21日</option><option value="22">22日</option><option value="23">23日</option><option value="24">24日</option><option value="25">25日</option><option value="26">26日</option><option value="27">27日</option><option value="28">28日</option><option value="29">29日</option><option value="30">30日</option><option value="31">31日</option>
+      </select>
     </div>
-    <div style="text-align:center;margin-top:28px;">
+    <div style="text-align:center;margin-top:28px">
       <button class="btn btn-primary" id="startBtn">◈ 开 启 轮 回 ◈</button>
     </div>
   </div>
-
-  <!-- ===== 加载 ===== -->
   <div class="load" id="loading">
     <div class="load-ring"><div class="r"></div><div class="r"></div><div class="r"></div></div>
     <div class="load-txt" id="loadTxt">正在打开轮回之门...</div>
     <div class="load-sub" id="loadSub">沟通冥界中，请耐心等待</div>
   </div>
-
-  <!-- ===== 轮回结果 ===== -->
-  <div class="reincarn-section" id="resultSection"></div>
+  <div id="resultSection" style="display:none"></div>
 </div>
-
 <script>
-(function(){
-// ===== 填充年月日 =====
-var ySel=document.getElementById('pYear'),mSel=document.getElementById('pMonth'),dSel=document.getElementById('pDay');
-for(var y=2026;y>=1940;y--){var o=document.createElement('option');o.value=y;o.text=y+'年';ySel.add(o)}
-for(var m=1;m<=12;m++){var o=document.createElement('option');o.value=m;o.text=m+'月';mSel.add(o)}
-function updDays(){var y=parseInt(ySel.value),m=parseInt(mSel.value);dSel.innerHTML='';var max=31;if(m===4||m===6||m===9||m===11)max=30;if(m===2){max=((y%4===0&&y%100!==0)||(y%400===0))?29:28}for(var d=1;d<=max;d++){var o=document.createElement('option');o.value=d;o.text=d+'日';dSel.add(o)}}
-ySel.onchange=mSel.onchange=updDays;updDays();
-
-// ===== 数据库 =====
 var ERAS=[
- {name:'远古洪荒',years:'约公元前3000年',desc:'天地初开，万物始生',bg:'天地混沌初开之世'},
- {name:'夏商周',years:'约公元前2070-前256年',desc:'青铜文明，礼乐肇始',bg:'华夏文明曙光初现'},
- {name:'春秋战国',years:'公元前770-前221年',desc:'百家争鸣，诸侯争霸',bg:'烽火连天百家争鸣'},
- {name:'秦汉',years:'公元前221-公元220年',desc:'天下一统，丝路通达',bg:'大漠孤烟直长河落日圆'},
- {name:'三国两晋',years:'公元220-420年',desc:'英雄辈出，乱世风云',bg:'滚滚长江东逝水'},
- {name:'南北朝',years:'公元420-589年',desc:'南北对峙，佛教大兴',bg:'南朝四百八十寺'},
- {name:'隋唐',years:'公元581-907年',desc:'盛世繁华，万国来朝',bg:'长安水边多丽人'},
- {name:'五代十国',years:'公元907-979年',desc:'藩镇割据，群雄并起',bg:'五代兴亡如梦间'},
- {name:'宋元',years:'公元960-1368年',desc:'文风鼎盛，铁骑横扫',bg:'醉里挑灯看剑'},
- {name:'明朝',years:'公元1368-1644年',desc:'航海壮举，锦衣暗涌',bg:'天子守国门君王死社稷'},
- {name:'清朝',years:'公元1644-1912年',desc:'康乾盛世，末路悲歌',bg:'落花时节又逢君'},
- {name:'民国',years:'公元1912-1949年',desc:'风云激荡，家国存亡',bg:'铁马冰河入梦来'},
- {name:'今生',years:'当代',desc:'红尘俗世，当下轮回',bg:'滚滚红尘中'}
+ {name:'远古洪荒',years:'约公元前3000年',bg:'天地混沌初开之世'},
+ {name:'夏商周',years:'约公元前2070-前256年',bg:'华夏文明曙光初现'},
+ {name:'春秋战国',years:'公元前770-前221年',bg:'烽火连天百家争鸣'},
+ {name:'秦汉',years:'公元前221-公元220年',bg:'大漠孤烟直长河落日圆'},
+ {name:'三国两晋',years:'公元220-420年',bg:'滚滚长江东逝水'},
+ {name:'南北朝',years:'公元420-589年',bg:'南朝四百八十寺'},
+ {name:'隋唐',years:'公元581-907年',bg:'长安水边多丽人'},
+ {name:'五代十国',years:'公元907-979年',bg:'五代兴亡如梦间'},
+ {name:'宋元',years:'公元960-1368年',bg:'醉里挑灯看剑'},
+ {name:'明朝',years:'公元1368-1644年',bg:'天子守国门君王死社稷'},
+ {name:'清朝',years:'公元1644-1912年',bg:'落花时节又逢君'},
+ {name:'民国',years:'公元1912-1949年',bg:'铁马冰河入梦来'},
+ {name:'今生',years:'当代',bg:'滚滚红尘中'}
 ];
-
 var ROLES_MALE={
   '远古洪荒':[
-   {id:'shaman',name:'远古部落大祭司',type:'神职',skill:['占卜','祈雨','草药','驱邪'],desc:'手持骨杖，口诵咒语，沟通天地神灵，为族人指引吉凶祸福。你以星辰之轨定四时更替，以兽骨裂纹断事之吉凶。'},
-   {id:'hunter',name:'原始部落猎手王',type:'武职',skill:['狩猎','追踪','搏斗','制造工具'],desc:'力能搏虎，箭无虚发。你率领族人深入莽荒猎杀猛兽，以兽皮御寒，以猎肉果腹。你是部落中最勇猛的战士。'},
-   {id:'chief',name:'远古部落首领',type:'王权',skill:['统领','外交','农耕','占卜'],desc:'身披兽皮，头戴羽冠，统领方圆百里之部落。你制定族规，调解纷争，带领族人在蛮荒中开疆拓土、繁衍生息。'}
+   {name:'远古部落大祭司',type:'神职',skill:['占卜','祈雨','草药','驱邪'],desc:'手持骨杖，口诵咒语，沟通天地神灵，为族人指引吉凶祸福。'},
+   {name:'原始部落猎手王',type:'武职',skill:['狩猎','追踪','搏斗','制造工具'],desc:'力能搏虎，箭无虚发，率领族人深入莽荒猎杀猛兽。'},
+   {name:'远古部落首领',type:'王权',skill:['统领','外交','农耕','占卜'],desc:'身披兽皮，头戴羽冠，统领方圆百里之部落。'}
   ],
   '夏商周':[
-   {id:'diviner',name:'王室御用卜官',type:'神职',skill:['甲骨占卜','祭祀','礼乐','星象'],desc:'掌管龟甲兽骨之占卜，为王室决断军国大事。每逢征伐祭祀，必先由你烧裂龟甲，解读神意，一言可定天下兴亡。'},
-   {id:'general1',name:'诸侯国将军',type:'武职',skill:['兵法','剑术','骑射','阵法'],desc:'执戈披甲，统帅三千铁骑。你以排兵布阵闻名诸侯，攻城略地所向披靡。忠心辅佐君主，以战功封侯拜将。'},
-   {id:'artisan',name:'青铜铸造大师',type:'技艺',skill:['铸造','冶炼','雕刻','礼器设计'],desc:'炉火纯青，巧夺天工。你为天子铸造国之重器，鼎彝尊爵皆出你手。每一件青铜器上的纹饰，都蕴含着你对天道人伦的参悟。'}
+   {name:'王室御用卜官',type:'神职',skill:['甲骨占卜','祭祀','礼乐','星象'],desc:'掌管龟甲兽骨之占卜，为王室决断军国大事。'},
+   {name:'诸侯国将军',type:'武职',skill:['兵法','剑术','骑射','阵法'],desc:'执戈披甲，统帅三千铁骑，攻城略地所向披靡。'},
+   {name:'青铜铸造大师',type:'技艺',skill:['铸造','冶炼','雕刻','礼器设计'],desc:'炉火纯青，巧夺天工，为天子铸造国之重器。'}
   ],
   '春秋战国':[
-   {id:'strategist',name:'纵横家谋士',type:'谋略',skill:['游说','纵横','策论','舌辩'],desc:'一舌可敌百万师，三寸之舌辨诸侯。你游走列国，以纵横捭阖之术搅动天下大势，一计可定一国之兴亡。'},
-   {id:'swordsman',name:'江湖游侠',type:'侠义',skill:['剑术','轻功','易容','暗器'],desc:'十步杀一人，千里不留行。你身佩长剑行走江湖，路见不平拔剑相助，事了拂衣去，深藏身与名。'},
-   {id:'scholar1',name:'诸子百家传人',type:'学术',skill:['讲学','论道','著书','辩论'],desc:'心怀天下，游学四方。你传承先师之学，开馆授徒，著书立说。弟子三千，贤人七十二，学说影响了后世千年。'}
+   {name:'纵横家谋士',type:'谋略',skill:['游说','纵横','策论','舌辩'],desc:'一舌可敌百万师，游走列国以纵横捭阖之术搅动天下大势。'},
+   {name:'江湖游侠',type:'侠义',skill:['剑术','轻功','易容','暗器'],desc:'十步杀一人千里不留行，路见不平拔剑相助。'},
+   {name:'诸子百家传人',type:'学术',skill:['讲学','论道','著书','辩论'],desc:'心怀天下游学四方，传承先师之学弟子三千。'}
   ],
   '秦汉':[
-   {id:'general2',name:'沙场虎将',type:'武职',skill:['骑射','刀法','兵法','防御'],desc:'饮马瀚海，封狼居胥。你率铁骑北击匈奴，西征大宛，战功赫赫名震天下。你的名字刻在朝廷功臣榜上，流芳百世。'},
-   {id:'doctor1',name:'太医院御医',type:'医术',skill:['诊脉','针灸','方剂','炼丹'],desc:'悬壶济世，妙手回春。你为天子后妃诊治疑难杂症，以银针祛病、草药调和阴阳，活人无数。'},
-   {id:'official1',name:'朝廷重臣',type:'文官',skill:['律法','治政','巡视','上书'],desc:'位极人臣，权重朝野。你辅佐天子治理天下，推行仁政，兴修水利，轻徭薄赋，使百姓安居乐业。'}
+   {name:'沙场虎将',type:'武职',skill:['骑射','刀法','兵法','防御'],desc:'饮马瀚海封狼居胥，战功赫赫名震天下。'},
+   {name:'太医院御医',type:'医术',skill:['诊脉','针灸','方剂','炼丹'],desc:'悬壶济世妙手回春，为天子后妃诊治疑难杂症。'},
+   {name:'朝廷重臣',type:'文官',skill:['律法','治政','巡视','上书'],desc:'位极人臣权重朝野，辅佐天子治理天下。'}
   ],
   '三国两晋':[
-   {id:'warlord',name:'一方诸侯',type:'王权',skill:['统帅','谋略','用人','治国'],desc:'乱世出英雄，你趁天下大乱之际招兵买马，割据一方。文有谋士出奇策，武有猛将斩敌酋，三分天下有其一。'},
-   {id:'advisor1',name:'军师',type:'谋略',skill:['奇谋','观星','布阵','连环计'],desc:'运筹帷幄之中，决胜千里之外。你轻摇羽扇，为君主献上百计千谋，以一人之力左右天下格局。'},
-   {id:'talent',name:'竹林名士',type:'文才',skill:['弹琴','饮酒','诗文','玄学'],desc:'竹林七贤之一，你放浪形骸不拘礼法，以琴音寄情、以酒浇愁。世人笑你疯癫，你笑世人看不穿。'}
+   {name:'一方诸侯',type:'王权',skill:['统帅','谋略','用人','治国'],desc:'乱世出英雄，割据一方三分天下有其一。'},
+   {name:'军师',type:'谋略',skill:['奇谋','观星','布阵','连环计'],desc:'运筹帷幄之中决胜千里之外。'},
+   {name:'竹林名士',type:'文才',skill:['弹琴','饮酒','诗文','玄学'],desc:'放浪形骸不拘礼法，世人笑我疯癫我笑世人看不穿。'}
   ],
   '南北朝':[
-   {id:'monk',name:'禅宗高僧',type:'修行',skill:['禅定','讲经','书法','渡人'],desc:'面壁九年，顿悟成佛。你于深山古寺中参禅悟道，一语点化迷途众生。前来参拜者络绎不绝，香火鼎盛。'},
-   {id:'painter1',name:'宫廷画师',type:'技艺',skill:['丹青','山水','人物','壁画'],desc:'丹青妙手，点墨成画。你的画作被悬于宫殿殿堂，山水之间见天地，一笔一划皆是禅意。'},
-   {id:'poet1',name:'边塞诗人',type:'文才',skill:['诗词','骑射','酒令','古琴'],desc:'仗剑走天涯，以诗酒会英雄。你的诗句被将士们传唱于边关大漠，字字句句透着家国情怀与壮志豪情。'}
+   {name:'禅宗高僧',type:'修行',skill:['禅定','讲经','书法','渡人'],desc:'面壁九年顿悟成佛，前来参拜者络绎不绝。'},
+   {name:'宫廷画师',type:'技艺',skill:['丹青','山水','人物','壁画'],desc:'丹青妙手点墨成画，山水之间见天地。'},
+   {name:'边塞诗人',type:'文才',skill:['诗词','骑射','酒令','古琴'],desc:'仗剑走天涯，以诗酒会英雄。'}
   ],
   '隋唐':[
-   {id:'prime',name:'当朝宰相',type:'文官',skill:['治国','选才','外交','诗赋'],desc:'一人之下万人之上，你辅佐天子开创盛世。贞观之治有你一份功劳，万国来朝的盛况中你功不可没。'},
-   {id:'monk2',name:'大唐高僧',type:'修行',skill:['译经','讲法','西行','辩经'],desc:'西行万里求取真经，归来后翻译佛典千卷。你历经九九八十一难，终成一代宗师，名垂青史。'},
-   {id:'artist',name:'长安名乐师',type:'技艺',skill:['琵琶','编钟','作曲','舞蹈编排'],desc:'琵琶一曲惊长安，天子为你驻足倾听。你在盛唐的繁华中抚琴弄弦，以乐音传情，曲罢满堂喝彩。'}
+   {name:'当朝宰相',type:'文官',skill:['治国','选才','外交','诗赋'],desc:'一人之下万人之上，辅佐天子开创盛世。'},
+   {name:'大唐高僧',type:'修行',skill:['译经','讲法','西行','辩经'],desc:'西行万里求取真经，历经九九八十一难终成一代宗师。'},
+   {name:'长安名乐师',type:'技艺',skill:['琵琶','编钟','作曲','舞蹈编排'],desc:'琵琶一曲惊长安，天子为你驻足倾听。'}
   ],
   '五代十国':[
-   {id:'warrior',name:'江湖剑客',type:'侠义',skill:['剑术','内功','轻功','暗器'],desc:'乱世之中，你以一把无名剑行走江湖，劫富济贫匡扶正义。剑出鞘，人头落，不留姓名只留传说。'},
-   {id:'spy',name:'军中密探',type:'谍报',skill:['情报','易容','密码','暗杀'],desc:'隐于暗处，为将帅刺探军情。你精通易容术，游走于敌我之间，以一人之力抵千军万马。'},
-   {id:'guard',name:'皇家禁军统领',type:'武职',skill:['枪法','指挥','擒拿','布防'],desc:'执戟守宫门，忠心护皇室。你统领禁军精锐三千，日夜守护皇宫安危，至死不渝。'}
+   {name:'江湖剑客',type:'侠义',skill:['剑术','内功','轻功','暗器'],desc:'乱世之中以一把无名剑行走江湖劫富济贫。'},
+   {name:'军中密探',type:'谍报',skill:['情报','易容','密码','暗杀'],desc:'隐于暗处为将帅刺探军情以一人之力抵千军万马。'},
+   {name:'皇家禁军统领',type:'武职',skill:['枪法','指挥','擒拿','布防'],desc:'执戟守宫门忠心护皇室。'}
   ],
   '宋元':[
-   {id:'ci_poet',name:'婉约词人',type:'文才',skill:['填词','书法','品茶','音律'],desc:'绿肥红瘦，物是人非。你的词作传遍大江南北，"人比黄花瘦"一句便让天下文人折服。虽有才情万千，却难逃人生聚散。'},
-   {id:'merchant',name:'丝绸之路巨贾',type:'商贾',skill:['贸易','算账','鉴宝','多语言'],desc:'骆驼铃声穿大漠，你携丝绸瓷器西行万里，换回金银香料。商路通达欧亚，富可敌国。'},
-   {id:'marshal',name:'抗金名将',type:'武职',skill:['枪法','兵法','骑射','治军'],desc:'怒发冲冠凭栏处，你率精兵抗击外敌，屡战屡胜。精忠报国是你的信条，岳武穆之名令敌人闻风丧胆。'}
+   {name:'婉约词人',type:'文才',skill:['填词','书法','品茶','音律'],desc:'绿肥红瘦物是人非，词作传遍大江南北。'},
+   {name:'丝绸之路巨贾',type:'商贾',skill:['贸易','算账','鉴宝','多语言'],desc:'骆驼铃声穿大漠，商路通达欧亚富可敌国。'},
+   {name:'抗金名将',type:'武职',skill:['枪法','兵法','骑射','治军'],desc:'精忠报国，率精兵抗击外敌屡战屡胜。'}
   ],
   '明朝':[
-   {id:'eunuch_advisor',name:'内阁大学士',type:'文官',skill:['治国','票拟','诗文','书法'],desc:'位高权重，执掌朝政。你以才学入仕，官至内阁首辅，一纸奏章可定国策。虽有奸佞环伺，你始终保持清名。'},
-   {id:'sailor',name:'远洋舰队船长',type:'航海',skill:['航海','外交','绘图','多语言'],desc:'三下西洋，七度远航。你率领万人大船队横渡重洋，所到之处万邦来朝，大明的威仪远播四海。'},
-   {id:'knight_errant',name:'锦衣卫暗卫',type:'谍报',skill:['武功','追踪','情报','暗器'],desc:'飞鱼服绣春刀，你潜行于暗夜之中，为天子查探朝野秘辛。忠义二字刻在心间，纵有千难万险亦不退缩。'}
+   {name:'内阁大学士',type:'文官',skill:['治国','票拟','诗文','书法'],desc:'位高权重执掌朝政，一纸奏章可定国策。'},
+   {name:'远洋舰队船长',type:'航海',skill:['航海','外交','绘图','多语言'],desc:'三下西洋七度远航，大明的威仪远播四海。'},
+   {name:'锦衣卫暗卫',type:'谍报',skill:['武功','追踪','情报','暗器'],desc:'飞鱼服绣春刀潜行于暗夜之中为天子查探朝野秘辛。'}
   ],
   '清朝':[
-   {id:'royal_teacher',name:'帝师',type:'文官',skill:['经史','治学','书法','谏言'],desc:'身为天子之师，你教授历代帝王治国之道。三朝元老，德高望重，你的名字载入清史列传。'},
-   {id:'craftsman',name:'御用瓷器大师',type:'技艺',skill:['制瓷','釉彩','雕刻','配方'],desc:'窑火千年淬绝技，你烧制的瓷器温润如玉、色彩斑斓，被誉为"人间瑰宝"。每一件作品都是巧夺天工的杰作。'},
-   {id:'general3',name:'镇守边关大将',type:'武职',skill:['骑射','刀法','兵法','御敌'],desc:'冰天雪地守边疆，你率领将士镇守北疆数十年。敌军闻你之名不敢犯境，百姓因你之守得以安居。'}
+   {name:'帝师',type:'文官',skill:['经史','治学','书法','谏言'],desc:'身为天子之师教授历代帝王治国之道。'},
+   {name:'御用瓷器大师',type:'技艺',skill:['制瓷','釉彩','雕刻','配方'],desc:'窑火千年淬绝技，烧制的瓷器温润如玉。'},
+   {name:'镇守边关大将',type:'武职',skill:['骑射','刀法','兵法','御敌'],desc:'冰天雪地守边疆，敌军闻你之名不敢犯境。'}
   ],
   '民国':[
-   {id:'writer',name:'民国文人',type:'文才',skill:['写作','翻译','辩论','思想'],desc:'新文化运动的弄潮儿，你以笔为刀划破旧世界的黑暗。你的文章唤醒了一代青年，推动了时代巨轮的转向。'},
-   {id:'doctor2',name:'留洋名医',type:'医术',skill:['外科','内科','药物','公共卫生'],desc:'悬壶济世西学中用，你将现代医学带回祖国，救死扶伤不辞辛劳。战火纷飞中你坚持开设诊所，救治无数伤患。'},
-   {id:'spy2',name:'地下情报员',type:'谍报',skill:['密码','电报','伪装','多语言'],desc:'隐姓埋名深入敌后，你以惊人的智慧和勇气获取关键情报。每一次行动都是与死神擦肩而过。'}
+   {name:'民国文人',type:'文才',skill:['写作','翻译','辩论','思想'],desc:'以笔为刀划破旧世界的黑暗，唤醒一代青年。'},
+   {name:'留洋名医',type:'医术',skill:['外科','内科','药物','公共卫生'],desc:'将现代医学带回祖国救死扶伤不辞辛劳。'},
+   {name:'地下情报员',type:'谍报',skill:['密码','电报','伪装','多语言'],desc:'隐姓埋名深入敌后以智慧和勇气获取关键情报。'}
   ]
 };
-
 var ROLES_FEMALE={
   '远古洪荒':[
-   {id:'priestess',name:'部落女神官',type:'神职',skill:['祭祀','草药','占卜','接生'],desc:'你沟通天神地祇，为族人主持神圣的祭祀仪式。在男人们出征前，你以兽骨占卜吉凶，你的每一个预言都影响着部落的命运。'},
-   {id:'weaver',name:'远古织布始祖',type:'技艺',skill:['织布','染色','编织','草药染色'],desc:'你从植物中提取色彩，用最原始的织机编织出精美的布匹。族人们穿上你织的衣物抵御风寒，你是部落中不可或缺的巧手。'},
-   {id:'gatherer',name:'部落采药圣手',type:'医术',skill:['采药','疗伤','辨毒','食养'],desc:'你熟知百草之性，能辨别哪些植物可食、哪些有毒、哪些可治病。你的草药救活了无数受伤的族人，被尊为"草母"。'}
+   {name:'部落女神官',type:'神职',skill:['祭祀','草药','占卜','接生'],desc:'沟通天神地祇为族人主持神圣祭祀仪式。'},
+   {name:'远古织布始祖',type:'技艺',skill:['织布','染色','编织','草药染色'],desc:'从植物中提取色彩用最原始的织机编织精美布匹。'},
+   {name:'部落采药圣手',type:'医术',skill:['采药','疗伤','辨毒','食养'],desc:'熟知百草之性能辨别有毒可治之植物。'}
   ],
   '夏商周':[
-   {id:'oracle_lady',name:'商朝女祭司',type:'神职',skill:['甲骨占卜','祭祀','舞祈','星象'],desc:'在殷商的祭坛上，你身着华服翩翩起舞，以舞姿祈求风调雨顺。你解读龟甲裂纹的含义，预言凶吉，连商王也要倾听你的神谕。'},
-   {id:'weaver1',name:'宫中锦织女',type:'技艺',skill:['织锦','刺绣','图案设计','染色'],desc:'你织出的丝绸如云似霞，宫中贵妇以穿戴你的织品为荣。一匹锦缎价值千金，你的手艺被誉为"天女下凡"。'},
-   {id:'lady_warrior',name:'女将',type:'武职',skill:['弓箭','骑马','军阵','指挥'],desc:'不让须眉，你披挂上阵率军出征，以女将之姿令敌军闻风丧胆。谋略武艺皆通，巾帼不让须眉。'}
+   {name:'商朝女祭司',type:'神职',skill:['甲骨占卜','祭祀','舞祈','星象'],desc:'在殷商祭坛上翩翩起舞以舞姿祈求风调雨顺。'},
+   {name:'宫中锦织女',type:'技艺',skill:['织锦','刺绣','图案设计','染色'],desc:'织出的丝绸如云似霞宫中贵妇以穿戴你的织品为荣。'},
+   {name:'女将',type:'武职',skill:['弓箭','骑马','军阵','指挥'],desc:'不让须眉披挂上阵率军出征以女将之姿令敌军闻风丧胆。'}
   ],
   '春秋战国':[
-   {id:'lady_scholar',name:'女学者',type:'学术',skill:['论道','讲学','著书','音乐'],desc:'才华横溢不让须眉，你隐于深山著书立说，门下弟子众多。虽然世道重男轻女，但你的学识让无数男儿自叹不如。'},
-   {id:'dancer1',name:'宫廷舞姬',type:'技艺',skill:['舞蹈','琴艺','吟唱','礼仪'],desc:'翩若惊鸿，婉若游龙。你的舞姿倾国倾城，一颦一笑皆成诗。列国君主为你倾倒，但你的心始终向往自由。'},
-   {id:'herbalist',name:'采药女仙',type:'医术',skill:['采药','炼丹','针灸','食疗'],desc:'深山中修炼道法，你采集百草炼制灵丹妙药。百姓相传你有起死回生之术，称你为"山中仙子"。'}
+   {name:'女学者',type:'学术',skill:['论道','讲学','著书','音乐'],desc:'才华横溢不让须眉隐于深山著书立说门下弟子众多。'},
+   {name:'宫廷舞姬',type:'技艺',skill:['舞蹈','琴艺','吟唱','礼仪'],desc:'翩若惊鸿婉若游龙一颦一笑皆成诗。'},
+   {name:'采药女仙',type:'医术',skill:['采药','炼丹','针灸','食疗'],desc:'深山中修炼道法采集百草炼制灵丹妙药。'}
   ],
   '秦汉':[
-   {id:'empress_advisor',name:'后宫女官',type:'文官',skill:['礼仪','管理','策谋','书法'],desc:'才学过人，你在后宫中掌管礼仪文书，辅佐皇后治理后宫。你的智慧连天子也暗暗佩服，朝中大臣有疑难也来向你请教。'},
-   {id:'doctor3',name:'悬壶女医',type:'医术',skill:['诊脉','草药','针灸','推拿'],desc:'游走乡间施医赠药，你不收分文为穷苦百姓治病。人们口口相传你的善行，称你为"菩萨再世"。'},
-   {id:'musician1',name:'宫廷乐师',type:'技艺',skill:['古琴','琵琶','编钟','作曲'],desc:'琴音绕梁三日不绝，你弹奏的古琴让听者潸然泪下。每逢大典，天子必召你入宫演奏，你的音乐被视为天籁之音。'}
+   {name:'后宫女官',type:'文官',skill:['礼仪','管理','策谋','书法'],desc:'在后宫中掌管礼仪文书辅佐皇后治理后宫。'},
+   {name:'悬壶女医',type:'医术',skill:['诊脉','草药','针灸','推拿'],desc:'游走乡间施医赠药不收分文为穷苦百姓治病。'},
+   {name:'宫廷乐师',type:'技艺',skill:['古琴','琵琶','编钟','作曲'],desc:'琴音绕梁三日不绝每逢大典天子必召你入宫演奏。'}
   ],
   '三国两晋':[
-   {id:'noble_lady',name:'世家贵女',type:'贵族',skill:['诗文','琴棋书画','管家','礼仪'],desc:'出身名门望族，你知书达理才华出众。虽身处乱世，但你以诗文寄托情怀，以智慧守护家族，成为乱世中的一抹亮色。'},
-   {id:'female_monk',name:'女尼',type:'修行',skill:['禅修','抄经','书法','渡人'],desc:'乱世之中你选择青灯古佛相伴，潜心研习佛法。你手抄佛经数百卷，字字虔诚。前来听你讲经的人络绎不绝。'},
-   {id:'warrior_girl',name:'巾帼女将',type:'武职',skill:['枪法','骑射','兵法','御敌'],desc:'代父从军，你女扮男装驰骋沙场十二载。战绩赫赫，无人知晓你是女子。功成身退之时，方显巾帼真本色。'}
+   {name:'世家贵女',type:'贵族',skill:['诗文','琴棋书画','管家','礼仪'],desc:'出身名门望族知书达理才华出众。'},
+   {name:'女尼',type:'修行',skill:['禅修','抄经','书法','渡人'],desc:'乱世之中选择青灯古佛潜心研习佛法。'},
+   {name:'巾帼女将',type:'武职',skill:['枪法','骑射','兵法','御敌'],desc:'代父从军女扮男装驰骋沙场十二载。'}
   ],
   '南北朝':[
-   {id:'poetess',name:'女诗人',type:'文才',skill:['诗词','书画','品茶','弈棋'],desc:'才情出众冠绝当时，你的诗词在南朝文坛独树一帜。虽为女儿身，但你的才华让无数才子汗颜，作品流传至今。'},
-   {id:'female_doc',name:'名医传人',type:'医术',skill:['诊断','方剂','针灸','草药学'],desc:'继承祖上医术，你以精湛的医术救死扶伤。皇帝召你入宫为太后诊治顽疾，一剂药方便令龙颜大悦。'},
-   {id:'weaver2',name:'织锦名家',type:'技艺',skill:['织锦','刺绣','配色','图案'],desc:'你的织锦技艺巧夺天工，一幅锦缎便值百金。南方女子以学习你的织法为荣，你的名字便是品质的保证。'}
+   {name:'女诗人',type:'文才',skill:['诗词','书画','品茶','弈棋'],desc:'才情出众冠绝当时在南朝文坛独树一帜。'},
+   {name:'名医传人',type:'医术',skill:['诊断','方剂','针灸','草药学'],desc:'继承祖上医术以精湛的医术救死扶伤。'},
+   {name:'织锦名家',type:'技艺',skill:['织锦','刺绣','配色','图案'],desc:'织锦技艺巧夺天工一幅锦缎便值百金。'}
   ],
   '隋唐':[
-   {id:'palace_lady',name:'宫廷女官',type:'文官',skill:['礼仪','诗赋','书法','管理'],desc:'容貌才华俱佳，你在宫中担任要职，协助治理后宫事务。以智慧化解纷争，以才学赢得天子与后妃的尊重。'},
-   {id:'dancer2',name:'教坊首席舞姬',type:'技艺',skill:['胡旋舞','琵琶','作曲','编舞'],desc:'你旋转如风中花瓣，一曲胡旋舞倾倒万邦来使。唐宫中无人不知你的大名，诗人为你写诗，画师为你画像。'},
-   {id:'tea_master',name:'茶道仙子',type:'技艺',skill:['茶艺','品鉴','制茶','花道'],desc:'你深谙茶道精髓，以水为媒、以茶会友。长安城中，达官贵人争相邀请你主持茶会，一杯清茶中尽显东方美学。'}
+   {name:'宫廷女官',type:'文官',skill:['礼仪','诗赋','书法','管理'],desc:'容貌才华俱佳在宫中担任要职协助治理后宫。'},
+   {name:'教坊首席舞姬',type:'技艺',skill:['胡旋舞','琵琶','作曲','编舞'],desc:'旋转如风中花瓣一曲胡旋舞倾倒万邦来使。'},
+   {name:'茶道仙子',type:'技艺',skill:['茶艺','品鉴','制茶','花道'],desc:'深谙茶道精髓以水为媒以茶会友。'}
   ],
   '五代十国':[
-   {id:'swordswoman',name:'江湖侠女',type:'侠义',skill:['双剑','轻功','暗器','易容'],desc:'红衣似火剑如霜，你行走江湖行侠仗义。劫富济贫匡扶正义，一柄双剑斩尽天下不平事。'},
-   {id:'hermit_lady',name:'隐居才女',type:'文才',skill:['诗词','书画','古琴','棋艺'],desc:'避乱世于深山之中，你隐居溪边以诗酒自娱。世人寻你不得，却在千年后发现了你的诗词手稿，方知此间曾有如此才女。'},
-   {id:'doctor_woman',name:'战地女医',type:'医术',skill:['外伤','草药','止血','针灸'],desc:'乱世中你背着药箱奔走于战场之间，不分敌我救治伤患。你的善良让无数士兵感动落泪。'}
+   {name:'江湖侠女',type:'侠义',skill:['双剑','轻功','暗器','易容'],desc:'红衣似火剑如霜行走江湖行侠仗义。'},
+   {name:'隐居才女',type:'文才',skill:['诗词','书画','古琴','棋艺'],desc:'避乱世于深山之中以诗酒自娱。'},
+   {name:'战地女医',type:'医术',skill:['外伤','草药','止血','针灸'],desc:'乱世中背着药箱奔走于战场之间救治伤患。'}
   ],
   '宋元':[
-   {id:'ci_poetess',name:'婉约女词人',type:'文才',skill:['填词','书画','金石','品茶'],desc:'你的词作婉约动人，被后世称为"千古第一才女"。虽命运多舛，但你的才情穿越千年依然闪耀。'},
-   {id:'silk_lady',name:'丝绸商贾',type:'商贾',skill:['贸易','鉴别','谈判','账房'],desc:'你继承家族丝绸生意，将它发展成江南最大的丝绸商号。生意做到海外，富甲一方却不骄奢，乐善好施。'},
-   {id:'actress',name:'梨园名角',type:'技艺',skill:['唱腔','身段','编排','乐器'],desc:'你登台一亮相便满堂喝彩，唱腔婉转动人。你的演出场场爆满，文人墨客争相为你写戏词。'}
+   {name:'婉约女词人',type:'文才',skill:['填词','书画','金石','品茶'],desc:'词作婉约动人被后世称为千古第一才女。'},
+   {name:'丝绸商贾',type:'商贾',skill:['贸易','鉴别','谈判','账房'],desc:'继承家族丝绸生意发展成江南最大的丝绸商号。'},
+   {name:'梨园名角',type:'技艺',skill:['唱腔','身段','编排','乐器'],desc:'登台亮相便满堂喝彩文人墨客争相为你写戏词。'}
   ],
   '明朝':[
-   {id:'lady_writer',name:'闺阁才女',type:'文才',skill:['诗文','小说','书画','弹琴'],desc:'身在闺阁心系天下，你以笔抒怀，写下传世之作。虽为女子，但你的才华和见识令众多男子自愧不如。'},
-   {id:'female_painter',name:'名门画师',type:'技艺',skill:['丹青','山水','花鸟','题诗'],desc:'你的花鸟画栩栩如生，山水画意境深远。收藏家以拥有你的画作为荣，你的画作成为传世之宝。'},
-   {id:'nun2',name:'尼姑庵主持',type:'修行',skill:['诵经','禅修','书法','种药'],desc:'你放弃荣华富贵遁入空门，潜心修行数十年。庵中香火旺盛，你以慈悲之心渡化众生，被百姓尊为活菩萨。'}
+   {name:'闺阁才女',type:'文才',skill:['诗文','小说','书画','弹琴'],desc:'身在闺阁心系天下以笔抒怀写下传世之作。'},
+   {name:'名门画师',type:'技艺',skill:['丹青','山水','花鸟','题诗'],desc:'花鸟画栩栩如生山水画意境深远。'},
+   {name:'尼姑庵主持',type:'修行',skill:['诵经','禅修','书法','种药'],desc:'放弃荣华富贵遁入空门潜心修行数十年。'}
   ],
   '清朝':[
-   {id:'palace_tutor',name:'格格之师',type:'文官',skill:['经史','书画','礼仪','诗词'],desc:'你才学深厚，被选入宫中教授皇家格格读书识字。你教导有方，公主们对你敬爱有加。'},
-   {id:'porcelain_artist',name:'景德镇彩绘大师',type:'技艺',skill:['彩绘','釉料','纹饰','设计'],desc:'你在瓷胎上描绘出精美绝伦的画面，一窑出炉便是珍品。你的手艺代代相传，成为景德镇最负盛名的彩绘世家。'},
-   {id:'female_merchant',name:'茶商千金',type:'商贾',skill:['品茶','制茶','贸易','管理'],desc:'你继承了家族的茶山和茶庄，将茶叶生意做到了海外。以诚信经营立身，以好茶赢得天下客。'}
+   {name:'格格之师',type:'文官',skill:['经史','书画','礼仪','诗词'],desc:'才学深厚被选入宫中教授皇家格格读书识字。'},
+   {name:'景德镇彩绘大师',type:'技艺',skill:['彩绘','釉料','纹饰','设计'],desc:'在瓷胎上描绘精美绝伦的画面一窑出炉便是珍品。'},
+   {name:'茶商千金',type:'商贾',skill:['品茶','制茶','贸易','管理'],desc:'继承家族茶山和茶庄将茶叶生意做到海外。'}
   ],
   '民国':[
-   {id:'modern_woman',name:'新女性先锋',type:'思想',skill:['写作','演讲','翻译','社交'],desc:'你剪去长发走出闺阁，倡导女子独立自主。你的文章激励了无数女性冲破封建束缚，是新时代女性的先驱。'},
-   {id:'doctor4',name:'女医生',type:'医术',skill:['西医','护理','公共卫生','教学'],desc:'你是国内首批女医生之一，在战火中开设医院救治伤患。你用实际行动证明女子同样可以救死扶伤。'},
-   {id:'actress2',name:'电影明星',type:'技艺',skill:['表演','歌唱','舞蹈','外语'],desc:'银幕上的你光彩照人，一部电影便能引起万人空巷。你是民国最耀眼的明星之一，也是无数人心中的梦中情人。'}
+   {name:'新女性先锋',type:'思想',skill:['写作','演讲','翻译','社交'],desc:'剪去长发走出闺阁倡导女子独立自主。'},
+   {name:'女医生',type:'医术',skill:['西医','护理','公共卫生','教学'],desc:'国内首批女医生之一在战火中开设医院救治伤患。'},
+   {name:'电影明星',type:'技艺',skill:['表演','歌唱','舞蹈','外语'],desc:'银幕上光彩照人一部电影便能引起万人空巷。'}
   ]
 };
-
 var KARMA_GOOD=['积德行善，广结善缘','心地善良，济世为怀','忠孝两全，义薄云天','心怀慈悲，普渡众生','正直无畏，刚正不阿','以德报怨，宽厚待人','舍己为人，大义凛然','勤勉好学，自强不息'];
 var KARMA_BAD=['杀伐果断，造杀孽深重','贪恋权势，不择手段','背信弃义，恩将仇报','纵欲妄为，荒淫无度','嫉妒成性，暗中害人','吝啬贪婪，为富不仁','刚愎自用，听不进忠言','骄傲自满，目中无人'];
 var KARMA_NEUTRAL=['随遇而安，顺其自然','虽有善念亦有私心','时善时恶，善恶参半','不争不抢，平平淡淡','重情重义，但偶尔迷失','心怀大志，却命途多舛'];
 var CAUSE_DEATH=['寿终正寝','病逝','战死沙场','被害殉职','积劳成疾','溺水而亡','遭人陷害','为爱殉情','隐居终老','意外事故','修炼飞升','饮酒过量','思念成疾','含冤而逝','功成身退','不知所踪'];
 var SOUL_TRAITS=['灵魂色彩：纯金色 — 至纯至善','灵魂色彩：深紫色 — 深沉内敛','灵魂色彩：碧蓝色 — 睿智通透','灵魂色彩：赤红色 — 热烈执着','灵魂色彩：翡翠绿 — 生机勃勃','灵魂色彩：银白色 — 空灵脱俗','灵魂色彩：暗金色 — 历经沧桑','灵魂色彩：绯红色 — 情感丰富','灵魂色彩：靛蓝色 — 洞察一切','灵魂色彩：琥珀色 — 温暖包容'];
-var BOND_TYPES=['前世的你与今生某人是主仆关系','前世的你为今生某人挡过一刀','前世的你与今生某人是结拜兄弟/姐妹','前世的你欠今生某人一笔债','前世的你与今生某人是师徒关系','前世的你与今生某人是恋人，却未能在一起','前世的你曾救过今生某人的命','前世的你与今生某人是挚友，肝胆相照'];
-var SUMMARY_TEMPLATES=[
-  '综观五世轮回，{name}的灵魂经历了从{role1}到{role2}的流转。{trait}，每一世的经历都为今生留下了深深的印记——{inherit}。',
-  '五世轮回如同一部波澜壮阔的史诗。{name}在漫长的时光中经历了{role1}、{role2}等身份，{trait}。今生所拥有的{inherit}，正是前世累积的因果。'
-];
+var BOND_TYPES=['前世的你与今生某人是主仆关系','前世的你为今生某人挡过一刀','前世的你与今生某人是结拜兄弟/姐妹','前世的你欠今生某人一笔债','前世的你与今生某人是师徒关系','前世的你与今生某人是恋人却未能在一起','前世的你曾救过今生某人的命','前世的你与今生某人是挚友肝胆相照'];
+var INHERITS=['坚韧不拔的意志','敏锐的洞察力','与生俱来的才华','善良正直的品性','强大的生命力','对美好事物的追求','天生的领导力','过人的记忆力'];
 
-// ===== 哈希函数 =====
 function hash(n,s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}return((h%Math.abs(n))+Math.abs(n))%n}
 function pick(arr,seed){return arr[hash(arr.length,seed)%arr.length]}
 function pickN(arr,n,seed){var a=[],used={};for(var i=0;i<Math.min(n,arr.length);i++){var idx=hash(arr.length,seed+i*i);while(used[idx]){idx=(idx+1)%arr.length}used[idx]=true;a.push(arr[idx])}return a}
 
-// ===== 生成五世轮回 =====
 function generateReincarnation(name,gender,year,month,day){
   var seed=name+gender+year+month+day;
-  var eras=[ERAS[0],ERAS[2],ERAS[7],ERAS[9],ERAS[12]]; // 远古、春秋战国、五代十国、明朝、今生
+  var eraIdxs=[0,2,7,9,12];
   var roles=gender==='male'?ROLES_MALE:ROLES_FEMALE;
   var lives=[];
-  var loadTexts=['正在打开轮回之门...','翻阅生死簿中...','穿越时空隧道...','追忆前尘往事...','因果轮回显现...'];
-  
   for(var i=0;i<5;i++){
-    var era=eras[i];
+    var era=ERAS[eraIdxs[i]];
     var eraName=era.name;
-    var rolePool=roles[eraName]||roles['隋唐'];
-    var role=rolePool[hash(rolePool.length,seed+i*7)%rolePool.length];
-    var karmaType=hash(3,seed+'k'+i);
-    var karma=karmaType===0?pick(KARMA_GOOD,seed+'kg'+i):karmaType===1?pick(KARMA_BAD,seed+'kb'+i):pick(KARMA_NEUTRAL,seed+'kn'+i);
+    var pool=roles[eraName]||roles['隋唐'];
+    var role=pool[hash(pool.length,seed+i*7)%pool.length];
+    var kt=hash(3,seed+'k'+i);
+    var karma=kt===0?pick(KARMA_GOOD,seed+'kg'+i):kt===1?pick(KARMA_BAD,seed+'kb'+i):pick(KARMA_NEUTRAL,seed+'kn'+i);
     var death=pick(CAUSE_DEATH,seed+'d'+i);
     var bond=pick(BOND_TYPES,seed+'b'+i);
-    var birthYear=hash(80,seed+'by'+i)+1;
     var age=hash(70,seed+'age'+i)+20;
     var soulTrait=pick(SOUL_TRAITS,seed+'st'+i);
-    lives.push({
-      era:eraName,eraYears:era.years,eraBg:era.bg,
-      identity:role.name,type:role.type,skills:role.skill,desc:role.desc,
-      karma:karma,death:death,bond:bond,
-      birthYear:birthYear,age:age,soulTrait:soulTrait,
-      isCurrent:i===4
-    });
+    lives.push({era:eraName,eraYears:era.years,eraBg:era.bg,identity:role.name,type:role.type,skills:role.skill,desc:role.desc,karma:karma,death:death,bond:bond,age:age,soulTrait:soulTrait,isCurrent:i===4});
   }
-  return{lives:lives,loadTexts:loadTexts,seed:seed};
+  return {lives:lives,seed:seed};
 }
 
-// ===== 渲染结果 =====
 function renderResult(data,name){
-  var html='';
+  var html='<div class="life-timeline">';
   for(var i=0;i<data.lives.length;i++){
     var l=data.lives[i];
     html+='<div class="life-card" style="animation-delay:'+(0.3+i*0.3)+'s">';
@@ -362,89 +330,58 @@ function renderResult(data,name){
     html+='<div class="life-detail-item"><div class="dl">因果善恶</div><div class="dv">'+l.karma+'</div></div>';
     html+='<div class="life-detail-item"><div class="dl">辞世原因</div><div class="dv">'+l.death+'</div></div>';
     html+='</div>';
-    html+='<div class="life-skill">';
-    html+='<span style="color:var(--text-muted);font-size:11px;">擅长：</span>';
+    html+='<div class="life-skill"><span style="color:var(--text-muted);font-size:11px">擅长：</span>';
     for(var j=0;j<l.skills.length;j++)html+='<span>'+l.skills[j]+'</span>';
     html+='</div>';
     html+='<div class="life-quote">「'+l.bond+'」</div>';
-    if(l.soulTrait)html+='<div style="margin-top:8px;font-size:11px;color:var(--text-dim);">'+l.soulTrait+'</div>';
+    html+='<div style="margin-top:8px;font-size:11px;color:var(--text-dim)">'+l.soulTrait+'</div>';
     html+='</div></div>';
   }
-  
-  // 灵魂总评
   var soulScore=hash(41,data.seed+'score')+60;
-  var soulDesc=soulScore>=90?'你的灵魂经历了漫长而丰富的轮回，积累了深厚的善业与智慧。今生你注定不凡，前世的一切苦难与辉煌都化为了今生的力量。':soulScore>=75?'你的灵魂在轮回中不断成长，虽有坎坷但也有辉煌。今生你拥有前世累积的经验与福报，好好把握。':soulScore>=60?'你的灵魂尚在轮回的修行途中，每一世都在学习新的功课。今生是你蜕变的关键时刻。';
-  
-  html+='<div class="life-soul-score">';
-  html+='<div class="score-label">灵 魂 累 积 评 分</div>';
-  html+='<div class="score-num">'+soulScore+'</div>';
-  html+='<div class="score-desc">'+soulDesc+'</div>';
-  html+='</div>';
-  
-  // 总结
-  var tpl=pick(SUMMARY_TEMPLATES,data.seed+'sum');
+  var soulDesc=soulScore>=90?'你的灵魂经历了漫长而丰富的轮回，积累了深厚的善业与智慧。今生你注定不凡，前世的一切苦难与辉煌都化为了今生的力量。':soulScore>=75?'你的灵魂在轮回中不断成长，虽有坎坷但也有辉煌。今生你拥有前世累积的经验与福报，好好把握。':soulScore>=60?'你的灵魂尚在轮回的修行途中，每一世都在学习新的功课。今生是你蜕变的关键时刻。':'灵魂尚在沉睡之中，觉醒需要更多修行。'
+  html+='<div class="life-soul-score"><div class="score-label">灵 魂 累 积 评 分</div><div class="score-num">'+soulScore+'</div><div class="score-desc">'+soulDesc+'</div></div>';
   var trait=pick(KARMA_GOOD,data.seed+'tr');
-  var inherit=pick(['坚韧不拔的意志','敏锐的洞察力','与生俱来的才华','善良正直的品性','强大的生命力','对美好事物的追求'],data.seed+'inh');
-  var role1=data.lives[0].identity;
-  var role2=data.lives[3].identity;
-  var summary=tpl.replace('{name}',name).replace('{role1}',role1).replace('{role2}',role2).replace('{trait}',trait).replace('{inherit}',inherit);
-  
-  html+='<div class="life-summary">';
-  html+='<h3>轮回总悟</h3>';
-  html+='<p>'+summary+'</p>';
-  html+='</div>';
-  
-  // 按钮
-  html+='<div class="btn-area">';
-  html+='<button class="btn btn-primary" onclick="location.reload()">◈ 再探一次轮回 ◈</button>';
-  html+='<button class="btn btn-outline" id="backHomeBtn">◈ 返回天命阁 ◈</button>';
-  html+='</div>';
+  var inherit=pick(INHERITS,data.seed+'inh');
+  var r1=data.lives[0].identity,r2=data.lives[3].identity;
+  html+='<div class="life-summary"><h3>轮回总悟</h3>';
+  html+='<p>综观五世轮回，'+name+'的灵魂经历了从'+r1+'到'+r2+'的流转。'+trait+'，每一世的经历都为今生留下了深深的印记——'+inherit+'。</p></div>';
+  html+='<div class="btn-area"><button class="btn btn-primary" onclick="location.reload()">◈ 再探一次轮回 ◈</button>';
+  html+='<button class="btn btn-outline" onclick="location.href=\'index.html\'">◈ 返回天命阁 ◈</button></div>';
   html+='<div class="back-link"><a href="index.html">← 返回首页</a></div>';
-  
-  document.getElementById('resultSection').innerHTML='<div class="life-timeline">'+html+'</div>';
+  html+='</div>';
+  document.getElementById('resultSection').innerHTML=html;
 }
 
-// ===== 按钮事件 =====
 document.getElementById('startBtn').addEventListener('click',function(){
   var name=document.getElementById('pName').value.trim();
   var gender=document.getElementById('pGender').value;
   var year=document.getElementById('pYear').value;
   var month=document.getElementById('pMonth').value;
   var day=document.getElementById('pDay').value;
-  
   if(!name){alert('请输入您的姓名');return}
   if(!gender){alert('请选择性别');return}
   if(!year||!month||!day){alert('请完整填写出生日期');return}
-  
   document.getElementById('inputSection').style.display='none';
   var load=document.getElementById('loading');
   load.classList.add('active');
-  
   var data=generateReincarnation(name,gender,parseInt(year),parseInt(month),parseInt(day));
   var texts=['正在打开轮回之门...沟通冥界中...','翻阅生死簿中...追忆前尘往事...','穿越时空隧道...溯游而上...','追寻第一世魂影...渐渐清晰...','五世因果显现...轮回画卷展开...'];
-  var idx=0;
-  var loadTxt=document.getElementById('loadTxt');
-  var loadSub=document.getElementById('loadSub');
+  var idx=0,loadTxt=document.getElementById('loadTxt'),loadSub=document.getElementById('loadSub');
   var timer=setInterval(function(){
     idx=(idx+1)%texts.length;
     loadTxt.textContent=texts[idx].split('...')[0]+'...';
     loadSub.textContent=texts[idx].split('...')[1]||'';
   },1800);
-  
   setTimeout(function(){
     clearInterval(timer);
     load.classList.remove('active');
     renderResult(data,name);
     var rs=document.getElementById('resultSection');
     rs.style.display='block';
-    setTimeout(function(){rs.classList.add('active');rs.scrollIntoView({behavior:'smooth',block:'start'})},50);
+    rs.style.opacity='0';
+    setTimeout(function(){rs.style.transition='opacity 0.8s';rs.style.opacity='1';rs.scrollIntoView({behavior:'smooth',block:'start'})},50);
   },5500);
 });
-
-document.getElementById('backHomeBtn').addEventListener('click',function(){
-  window.location.href='index.html';
-});
-})();
 </script>
 </body>
 </html>

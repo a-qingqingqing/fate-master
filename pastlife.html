@@ -156,7 +156,8 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
   <div id="resultSection" style="display:none"></div>
 </div>
 <script>
-// 填充年份 {
+// 填充年份
+(function() {
   var sel = document.getElementById('pYear');
   for (var y = 2010; y >= 1940; y--) {
     var o = document.createElement('option');

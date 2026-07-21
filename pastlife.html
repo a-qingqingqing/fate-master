@@ -51,9 +51,24 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
 .load-txt{font-family:'Ma Shan Zheng',cursive;font-size:22px;color:var(--gold-light);letter-spacing:5px;animation:pulse 1.6s ease-in-out infinite}
 .load-sub{font-size:12px;color:var(--text-muted);margin-top:10px;letter-spacing:2px}
 @keyframes pulse{0%,100%{opacity:0.35}50%{opacity:1}}
+.bazi-plate{background:linear-gradient(145deg,rgba(42,34,28,0.96),rgba(26,20,16,0.99));border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:24px;margin:16px 0;overflow:hidden;position:relative}
+.bazi-plate::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--cinnabar),var(--gold))}
+.bazi-plate h3{font-family:'Ma Shan Zheng',cursive;font-size:20px;color:var(--gold-light);text-align:center;margin-bottom:16px}
+.bazi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.bazi-col{padding:12px 8px;background:rgba(61,50,42,0.15);border-radius:8px;border:1px solid rgba(201,168,76,0.08)}
+.bazi-col .col-label{font-size:11px;color:var(--text-muted);margin-bottom:6px}
+.bazi-col .col-gz{font-family:'Ma Shan Zheng',cursive;font-size:22px;color:var(--gold);letter-spacing:2px}
+.bazi-col .col-wx{font-size:11px;margin-top:4px;padding:2px 6px;border-radius:3px;display:inline-block}
+.wx-jin{background:rgba(212,175,55,0.15);color:#d4af37;border:1px solid rgba(212,175,55,0.3)}
+.wx-mu{background:rgba(76,175,80,0.15);color:#81c784;border:1px solid rgba(76,175,80,0.3)}
+.wx-shui{background:rgba(66,165,245,0.15);color:#64b5f6;border:1px solid rgba(66,165,245,0.3)}
+.wx-huo{background:rgba(244,67,54,0.15);color:#ef9a9a;border:1px solid rgba(244,67,54,0.3)}
+.wx-tu{background:rgba(255,193,7,0.15);color:#ffd54f;border:1px solid rgba(255,193,7,0.3)}
+.wx-info{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.wx-info span{font-size:11px;color:var(--text-muted);padding:3px 10px;border-radius:12px;border:1px solid rgba(201,168,76,0.12);background:rgba(201,168,76,0.03)}
 .life-timeline{position:relative;padding-left:40px}
 .life-timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--gold),var(--cinnabar),var(--gold),transparent)}
-.life-card{position:relative;margin-bottom:36px;opacity:0;transform:translateY(24px);animation:cardIn 0.7s ease-out forwards}
+.life-card{position:relative;margin-bottom:40px;opacity:0;transform:translateY(24px);animation:cardIn 0.7s ease-out forwards}
 @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
 .life-dot{position:absolute;left:-33px;top:28px;width:14px;height:14px;border-radius:50%;border:2px solid var(--gold);background:var(--ink-black);z-index:2}
 .life-dot.current{border-color:var(--cinnabar-light);background:var(--cinnabar);box-shadow:0 0 12px var(--cinnabar-glow)}
@@ -62,27 +77,29 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
 .life-era{display:inline-flex;align-items:center;gap:6px;padding:3px 14px;border-radius:3px;font-size:11px;letter-spacing:2px;margin-bottom:12px;border:1px solid rgba(201,168,76,0.2);color:var(--gold-light);background:rgba(201,168,76,0.04)}
 .life-era.current-era{border-color:var(--cinnabar);color:var(--cinnabar-light);background:rgba(194,59,34,0.08)}
 .life-identity{font-family:'Ma Shan Zheng',cursive;font-size:26px;color:var(--gold);margin:8px 0 4px;letter-spacing:1px}
-.life-desc{color:var(--text-muted);font-size:13px;line-height:1.8;margin:10px 0}
+.life-desc{color:var(--text-muted);font-size:13px;line-height:1.9;margin:12px 0}
 .life-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .life-detail-item{padding:10px 12px;background:rgba(61,50,42,0.2);border-radius:6px;border:1px solid rgba(201,168,76,0.06);font-size:12px}
 .life-detail-item .dl{color:var(--text-muted);font-size:11px;margin-bottom:3px}
 .life-detail-item .dv{color:var(--gold-light);font-size:14px;font-family:'Ma Shan Zheng',cursive}
-.life-quote{margin-top:14px;padding:12px 16px;border-left:2px solid var(--cinnabar);background:rgba(194,59,34,0.04);border-radius:0 6px 6px 0;font-size:13px;color:var(--text-muted);font-style:italic;line-height:1.7}
+.life-quote{margin-top:14px;padding:14px 18px;border-left:2px solid var(--cinnabar);background:rgba(194,59,34,0.04);border-radius:0 6px 6px 0;font-size:13px;color:var(--text-muted);font-style:italic;line-height:1.8}
 .life-skill{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .life-skill span{padding:3px 10px;border-radius:12px;font-size:11px;border:1px solid rgba(201,168,76,0.15);color:var(--text-muted);background:rgba(201,168,76,0.03)}
-.life-soul-score{text-align:center;margin:20px 0;padding:24px;background:linear-gradient(145deg,rgba(42,34,28,0.96),rgba(26,20,16,0.99));border:1px solid rgba(201,168,76,0.2);border-radius:12px}
+.life-bazi-link{margin-top:10px;padding:10px 14px;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.1);border-radius:6px;font-size:11px;color:var(--text-dim);line-height:1.7}
+.life-bazi-link b{color:var(--gold-light)}
+.life-soul-score{text-align:center;margin:24px 0;padding:28px;background:linear-gradient(145deg,rgba(42,34,28,0.96),rgba(26,20,16,0.99));border:1px solid rgba(201,168,76,0.2);border-radius:12px}
 .life-soul-score .score-label{font-size:12px;color:var(--text-muted);letter-spacing:3px;margin-bottom:8px}
 .life-soul-score .score-num{font-family:'Ma Shan Zheng',cursive;font-size:64px;color:var(--gold);text-shadow:0 0 40px var(--gold-glow)}
 .life-soul-score .score-desc{font-size:13px;color:var(--text-muted);margin-top:8px;line-height:1.6}
-.life-summary{text-align:center;padding:20px;margin-top:16px;background:rgba(194,59,34,0.05);border:1px solid rgba(194,59,34,0.12);border-radius:10px}
-.life-summary h3{font-family:'Ma Shan Zheng',cursive;font-size:22px;color:var(--cinnabar-light);margin-bottom:10px}
-.life-summary p{font-size:13px;color:var(--text-muted);line-height:1.9;max-width:560px;margin:0 auto}
+.life-summary{text-align:center;padding:24px;margin-top:16px;background:rgba(194,59,34,0.05);border:1px solid rgba(194,59,34,0.12);border-radius:10px}
+.life-summary h3{font-family:'Ma Shan Zheng',cursive;font-size:22px;color:var(--cinnabar-light);margin-bottom:12px}
+.life-summary p{font-size:13px;color:var(--text-muted);line-height:2;max-width:600px;margin:0 auto}
 .btn-area{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:28px}
 .btn-area .btn{max-width:300px}
 .back-link{text-align:center;margin-top:16px}
 .back-link a{color:var(--text-muted);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.15);padding-bottom:2px}
 .back-link a:hover{color:var(--gold)}
-@media(max-width:500px){.life-details{grid-template-columns:1fr}}
+@media(max-width:500px){.life-details{grid-template-columns:1fr}.bazi-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -93,7 +110,7 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
     <div class="header-badge">天 命 阁</div>
     <div class="header-title">前世轮回<span class="title-deco"></span></div>
     <div class="header-sub">孟婆汤忘前尘事 · 六道轮回续今生缘</div>
-    <div class="header-desc">据传人死后须过奈何桥、饮孟婆汤，方忘却前世种种。然若以八字入卦，或可窥探轮回之一二。请输入基本信息，开启五世轮回之旅。</div>
+    <div class="header-desc">以八字命盘为引，以易经五行推演，追溯灵魂五世轮回之旅。前世种种皆为今世因果，诸般因缘际会汇聚于此身。</div>
   </div>
   <div class="divider"><span class="divider-line l"></span><span>◈</span><span class="divider-line r"></span></div>
   <div id="inputSection">
@@ -113,22 +130,19 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
       <label>出生年份（公历）</label>
       <select id="pYear">
         <option value="">-- 请选择 --</option>
-        <option value="2006">2006年</option><option value="2005">2005年</option><option value="2004">2004年</option><option value="2003">2003年</option><option value="2002">2002年</option><option value="2001">2001年</option><option value="2000">2000年</option><option value="1999">1999年</option><option value="1998">1998年</option><option value="1997">1997年</option><option value="1996">1996年</option><option value="1995">1995年</option><option value="1994">1994年</option><option value="1993">1993年</option><option value="1992">1992年</option><option value="1991">1991年</option><option value="1990">1990年</option><option value="1989">1989年</option><option value="1988">1988年</option><option value="1987">1987年</option><option value="1986">1986年</option><option value="1985">1985年</option><option value="1984">1984年</option><option value="1983">1983年</option><option value="1982">1982年</option><option value="1981">1981年</option><option value="1980">1980年</option><option value="1979">1979年</option><option value="1978">1978年</option><option value="1977">1977年</option><option value="1976">1976年</option><option value="1975">1975年</option><option value="1974">1974年</option><option value="1973">1973年</option><option value="1972">1972年</option><option value="1971">1971年</option><option value="1970">1970年</option><option value="1969">1969年</option><option value="1968">1968年</option><option value="1967">1967年</option><option value="1966">1966年</option><option value="1965">1965年</option><option value="1964">1964年</option><option value="1963">1963年</option><option value="1962">1962年</option><option value="1961">1961年</option><option value="1960">1960年</option><option value="1959">1959年</option><option value="1958">1958年</option><option value="1957">1957年</option><option value="1956">1956年</option><option value="1955">1955年</option><option value="1954">1954年</option><option value="1953">1953年</option><option value="1952">1952年</option><option value="1951">1951年</option><option value="1950">1950年</option><option value="1949">1949年</option><option value="1948">1948年</option><option value="1947">1947年</option><option value="1946">1946年</option><option value="1945">1945年</option><option value="1944">1944年</option><option value="1943">1943年</option><option value="1942">1942年</option><option value="1941">1941年</option><option value="1940">1940年</option>
       </select>
     </div>
     <div class="input-group">
       <label>出生月份</label>
-      <select id="pMonth">
-        <option value="">-- 请选择 --</option>
-        <option value="1">1月</option><option value="2">2月</option><option value="3">3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option>
-      </select>
+      <select id="pMonth"><option value="">-- 请选择 --</option><option value="1">1月</option><option value="2">2月</option><option value="3">3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option></select>
     </div>
     <div class="input-group">
       <label>出生日期</label>
-      <select id="pDay">
-        <option value="">-- 请选择 --</option>
-        <option value="1">1日</option><option value="2">2日</option><option value="3">3日</option><option value="4">4日</option><option value="5">5日</option><option value="6">6日</option><option value="7">7日</option><option value="8">8日</option><option value="9">9日</option><option value="10">10日</option><option value="11">11日</option><option value="12">12日</option><option value="13">13日</option><option value="14">14日</option><option value="15">15日</option><option value="16">16日</option><option value="17">17日</option><option value="18">18日</option><option value="19">19日</option><option value="20">20日</option><option value="21">21日</option><option value="22">22日</option><option value="23">23日</option><option value="24">24日</option><option value="25">25日</option><option value="26">26日</option><option value="27">27日</option><option value="28">28日</option><option value="29">29日</option><option value="30">30日</option><option value="31">31日</option>
-      </select>
+      <select id="pDay"><option value="">-- 请选择 --</option><option value="1">1日</option><option value="2">2日</option><option value="3">3日</option><option value="4">4日</option><option value="5">5日</option><option value="6">6日</option><option value="7">7日</option><option value="8">8日</option><option value="9">9日</option><option value="10">10日</option><option value="11">11日</option><option value="12">12日</option><option value="13">13日</option><option value="14">14日</option><option value="15">15日</option><option value="16">16日</option><option value="17">17日</option><option value="18">18日</option><option value="19">19日</option><option value="20">20日</option><option value="21">21日</option><option value="22">22日</option><option value="23">23日</option><option value="24">24日</option><option value="25">25日</option><option value="26">26日</option><option value="27">27日</option><option value="28">28日</option><option value="29">29日</option><option value="30">30日</option><option value="31">31日</option></select>
+    </div>
+    <div class="input-group">
+      <label>出生时辰</label>
+      <select id="pHour"><option value="">-- 请选择（不知可选不详）--</option><option value="0">子时 23:00-00:59</option><option value="1">丑时 01:00-02:59</option><option value="2">寅时 03:00-04:59</option><option value="3">卯时 05:00-06:59</option><option value="4">辰时 07:00-08:59</option><option value="5">巳时 09:00-10:59</option><option value="6">午时 11:00-12:59</option><option value="7">未时 13:00-14:59</option><option value="8">申时 15:00-16:59</option><option value="9">酉时 17:00-18:59</option><option value="10">戌时 19:00-20:59</option><option value="11">亥时 21:00-22:59</option><option value="-1">不详</option></select>
     </div>
     <div style="text-align:center;margin-top:28px">
       <button class="btn btn-primary" id="startBtn">◈ 开 启 轮 回 ◈</button>
@@ -142,245 +156,453 @@ body{font-family:'Noto Serif SC',serif;background:var(--ink-black);color:var(--t
   <div id="resultSection" style="display:none"></div>
 </div>
 <script>
-var ERAS=[
- {name:'远古洪荒',years:'约公元前3000年',bg:'天地混沌初开之世'},
- {name:'夏商周',years:'约公元前2070-前256年',bg:'华夏文明曙光初现'},
- {name:'春秋战国',years:'公元前770-前221年',bg:'烽火连天百家争鸣'},
- {name:'秦汉',years:'公元前221-公元220年',bg:'大漠孤烟直长河落日圆'},
- {name:'三国两晋',years:'公元220-420年',bg:'滚滚长江东逝水'},
- {name:'南北朝',years:'公元420-589年',bg:'南朝四百八十寺'},
- {name:'隋唐',years:'公元581-907年',bg:'长安水边多丽人'},
- {name:'五代十国',years:'公元907-979年',bg:'五代兴亡如梦间'},
- {name:'宋元',years:'公元960-1368年',bg:'醉里挑灯看剑'},
- {name:'明朝',years:'公元1368-1644年',bg:'天子守国门君王死社稷'},
- {name:'清朝',years:'公元1644-1912年',bg:'落花时节又逢君'},
- {name:'民国',years:'公元1912-1949年',bg:'铁马冰河入梦来'},
- {name:'今生',years:'当代',bg:'滚滚红尘中'}
+// 填充年份 {
+  var sel = document.getElementById('pYear');
+  for (var y = 2010; y >= 1940; y--) {
+    var o = document.createElement('option');
+    o.value = y;
+    o.text = y + '年';
+    sel.add(o);
+  }
+})();
+
+// ===== 八字命理核心数据 =====
+var TIAN_GAN = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+var DI_ZHI = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+var WU_XING_GAN = {'甲':'木','乙':'木','丙':'火','丁':'火','戊':'土','己':'土','庚':'金','辛':'金','壬':'水','癸':'水'};
+var WU_XING_ZHI = {'子':'水','丑':'土','寅':'木','卯':'木','辰':'土','巳':'火','午':'火','未':'土','申':'金','酉':'金','戌':'土','亥':'水'};
+var WU_XING_SHENG = {'木':'火','火':'土','土':'金','金':'水','水':'木'};
+var WU_XING_KE = {'木':'土','火':'金','土':'水','金':'木','水':'火'};
+var WX_CLASS = {'金':'wx-jin','木':'wx-mu','水':'wx-shui','火':'wx-huo','土':'wx-tu'};
+
+// 纳音五行（六甲纳音）
+var NAYIN = [
+  '海中金','炉中火','大林木','路旁土','剑锋金','山头火',
+  '涧下水','城头土','白蜡金','杨柳木','泉中水','屋上土',
+  '霹雳火','松柏木','长流水','砂中金','山下火','平地木',
+  '壁上土','金箔金','覆灯火','天河水','大驿土','钗环金',
+  '桑柘木','大溪水','砂中土','天上火','石榴木','大海水'
 ];
-var ROLES_MALE={
-  '远古洪荒':[
-   {name:'远古部落大祭司',type:'神职',skill:['占卜','祈雨','草药','驱邪'],desc:'手持骨杖，口诵咒语，沟通天地神灵，为族人指引吉凶祸福。'},
-   {name:'原始部落猎手王',type:'武职',skill:['狩猎','追踪','搏斗','制造工具'],desc:'力能搏虎，箭无虚发，率领族人深入莽荒猎杀猛兽。'},
-   {name:'远古部落首领',type:'王权',skill:['统领','外交','农耕','占卜'],desc:'身披兽皮，头戴羽冠，统领方圆百里之部落。'}
-  ],
-  '夏商周':[
-   {name:'王室御用卜官',type:'神职',skill:['甲骨占卜','祭祀','礼乐','星象'],desc:'掌管龟甲兽骨之占卜，为王室决断军国大事。'},
-   {name:'诸侯国将军',type:'武职',skill:['兵法','剑术','骑射','阵法'],desc:'执戈披甲，统帅三千铁骑，攻城略地所向披靡。'},
-   {name:'青铜铸造大师',type:'技艺',skill:['铸造','冶炼','雕刻','礼器设计'],desc:'炉火纯青，巧夺天工，为天子铸造国之重器。'}
-  ],
-  '春秋战国':[
-   {name:'纵横家谋士',type:'谋略',skill:['游说','纵横','策论','舌辩'],desc:'一舌可敌百万师，游走列国以纵横捭阖之术搅动天下大势。'},
-   {name:'江湖游侠',type:'侠义',skill:['剑术','轻功','易容','暗器'],desc:'十步杀一人千里不留行，路见不平拔剑相助。'},
-   {name:'诸子百家传人',type:'学术',skill:['讲学','论道','著书','辩论'],desc:'心怀天下游学四方，传承先师之学弟子三千。'}
-  ],
-  '秦汉':[
-   {name:'沙场虎将',type:'武职',skill:['骑射','刀法','兵法','防御'],desc:'饮马瀚海封狼居胥，战功赫赫名震天下。'},
-   {name:'太医院御医',type:'医术',skill:['诊脉','针灸','方剂','炼丹'],desc:'悬壶济世妙手回春，为天子后妃诊治疑难杂症。'},
-   {name:'朝廷重臣',type:'文官',skill:['律法','治政','巡视','上书'],desc:'位极人臣权重朝野，辅佐天子治理天下。'}
-  ],
-  '三国两晋':[
-   {name:'一方诸侯',type:'王权',skill:['统帅','谋略','用人','治国'],desc:'乱世出英雄，割据一方三分天下有其一。'},
-   {name:'军师',type:'谋略',skill:['奇谋','观星','布阵','连环计'],desc:'运筹帷幄之中决胜千里之外。'},
-   {name:'竹林名士',type:'文才',skill:['弹琴','饮酒','诗文','玄学'],desc:'放浪形骸不拘礼法，世人笑我疯癫我笑世人看不穿。'}
-  ],
-  '南北朝':[
-   {name:'禅宗高僧',type:'修行',skill:['禅定','讲经','书法','渡人'],desc:'面壁九年顿悟成佛，前来参拜者络绎不绝。'},
-   {name:'宫廷画师',type:'技艺',skill:['丹青','山水','人物','壁画'],desc:'丹青妙手点墨成画，山水之间见天地。'},
-   {name:'边塞诗人',type:'文才',skill:['诗词','骑射','酒令','古琴'],desc:'仗剑走天涯，以诗酒会英雄。'}
-  ],
-  '隋唐':[
-   {name:'当朝宰相',type:'文官',skill:['治国','选才','外交','诗赋'],desc:'一人之下万人之上，辅佐天子开创盛世。'},
-   {name:'大唐高僧',type:'修行',skill:['译经','讲法','西行','辩经'],desc:'西行万里求取真经，历经九九八十一难终成一代宗师。'},
-   {name:'长安名乐师',type:'技艺',skill:['琵琶','编钟','作曲','舞蹈编排'],desc:'琵琶一曲惊长安，天子为你驻足倾听。'}
-  ],
-  '五代十国':[
-   {name:'江湖剑客',type:'侠义',skill:['剑术','内功','轻功','暗器'],desc:'乱世之中以一把无名剑行走江湖劫富济贫。'},
-   {name:'军中密探',type:'谍报',skill:['情报','易容','密码','暗杀'],desc:'隐于暗处为将帅刺探军情以一人之力抵千军万马。'},
-   {name:'皇家禁军统领',type:'武职',skill:['枪法','指挥','擒拿','布防'],desc:'执戟守宫门忠心护皇室。'}
-  ],
-  '宋元':[
-   {name:'婉约词人',type:'文才',skill:['填词','书法','品茶','音律'],desc:'绿肥红瘦物是人非，词作传遍大江南北。'},
-   {name:'丝绸之路巨贾',type:'商贾',skill:['贸易','算账','鉴宝','多语言'],desc:'骆驼铃声穿大漠，商路通达欧亚富可敌国。'},
-   {name:'抗金名将',type:'武职',skill:['枪法','兵法','骑射','治军'],desc:'精忠报国，率精兵抗击外敌屡战屡胜。'}
-  ],
-  '明朝':[
-   {name:'内阁大学士',type:'文官',skill:['治国','票拟','诗文','书法'],desc:'位高权重执掌朝政，一纸奏章可定国策。'},
-   {name:'远洋舰队船长',type:'航海',skill:['航海','外交','绘图','多语言'],desc:'三下西洋七度远航，大明的威仪远播四海。'},
-   {name:'锦衣卫暗卫',type:'谍报',skill:['武功','追踪','情报','暗器'],desc:'飞鱼服绣春刀潜行于暗夜之中为天子查探朝野秘辛。'}
-  ],
-  '清朝':[
-   {name:'帝师',type:'文官',skill:['经史','治学','书法','谏言'],desc:'身为天子之师教授历代帝王治国之道。'},
-   {name:'御用瓷器大师',type:'技艺',skill:['制瓷','釉彩','雕刻','配方'],desc:'窑火千年淬绝技，烧制的瓷器温润如玉。'},
-   {name:'镇守边关大将',type:'武职',skill:['骑射','刀法','兵法','御敌'],desc:'冰天雪地守边疆，敌军闻你之名不敢犯境。'}
-  ],
-  '民国':[
-   {name:'民国文人',type:'文才',skill:['写作','翻译','辩论','思想'],desc:'以笔为刀划破旧世界的黑暗，唤醒一代青年。'},
-   {name:'留洋名医',type:'医术',skill:['外科','内科','药物','公共卫生'],desc:'将现代医学带回祖国救死扶伤不辞辛劳。'},
-   {name:'地下情报员',type:'谍报',skill:['密码','电报','伪装','多语言'],desc:'隐姓埋名深入敌后以智慧和勇气获取关键情报。'}
-  ]
-};
-var ROLES_FEMALE={
-  '远古洪荒':[
-   {name:'部落女神官',type:'神职',skill:['祭祀','草药','占卜','接生'],desc:'沟通天神地祇为族人主持神圣祭祀仪式。'},
-   {name:'远古织布始祖',type:'技艺',skill:['织布','染色','编织','草药染色'],desc:'从植物中提取色彩用最原始的织机编织精美布匹。'},
-   {name:'部落采药圣手',type:'医术',skill:['采药','疗伤','辨毒','食养'],desc:'熟知百草之性能辨别有毒可治之植物。'}
-  ],
-  '夏商周':[
-   {name:'商朝女祭司',type:'神职',skill:['甲骨占卜','祭祀','舞祈','星象'],desc:'在殷商祭坛上翩翩起舞以舞姿祈求风调雨顺。'},
-   {name:'宫中锦织女',type:'技艺',skill:['织锦','刺绣','图案设计','染色'],desc:'织出的丝绸如云似霞宫中贵妇以穿戴你的织品为荣。'},
-   {name:'女将',type:'武职',skill:['弓箭','骑马','军阵','指挥'],desc:'不让须眉披挂上阵率军出征以女将之姿令敌军闻风丧胆。'}
-  ],
-  '春秋战国':[
-   {name:'女学者',type:'学术',skill:['论道','讲学','著书','音乐'],desc:'才华横溢不让须眉隐于深山著书立说门下弟子众多。'},
-   {name:'宫廷舞姬',type:'技艺',skill:['舞蹈','琴艺','吟唱','礼仪'],desc:'翩若惊鸿婉若游龙一颦一笑皆成诗。'},
-   {name:'采药女仙',type:'医术',skill:['采药','炼丹','针灸','食疗'],desc:'深山中修炼道法采集百草炼制灵丹妙药。'}
-  ],
-  '秦汉':[
-   {name:'后宫女官',type:'文官',skill:['礼仪','管理','策谋','书法'],desc:'在后宫中掌管礼仪文书辅佐皇后治理后宫。'},
-   {name:'悬壶女医',type:'医术',skill:['诊脉','草药','针灸','推拿'],desc:'游走乡间施医赠药不收分文为穷苦百姓治病。'},
-   {name:'宫廷乐师',type:'技艺',skill:['古琴','琵琶','编钟','作曲'],desc:'琴音绕梁三日不绝每逢大典天子必召你入宫演奏。'}
-  ],
-  '三国两晋':[
-   {name:'世家贵女',type:'贵族',skill:['诗文','琴棋书画','管家','礼仪'],desc:'出身名门望族知书达理才华出众。'},
-   {name:'女尼',type:'修行',skill:['禅修','抄经','书法','渡人'],desc:'乱世之中选择青灯古佛潜心研习佛法。'},
-   {name:'巾帼女将',type:'武职',skill:['枪法','骑射','兵法','御敌'],desc:'代父从军女扮男装驰骋沙场十二载。'}
-  ],
-  '南北朝':[
-   {name:'女诗人',type:'文才',skill:['诗词','书画','品茶','弈棋'],desc:'才情出众冠绝当时在南朝文坛独树一帜。'},
-   {name:'名医传人',type:'医术',skill:['诊断','方剂','针灸','草药学'],desc:'继承祖上医术以精湛的医术救死扶伤。'},
-   {name:'织锦名家',type:'技艺',skill:['织锦','刺绣','配色','图案'],desc:'织锦技艺巧夺天工一幅锦缎便值百金。'}
-  ],
-  '隋唐':[
-   {name:'宫廷女官',type:'文官',skill:['礼仪','诗赋','书法','管理'],desc:'容貌才华俱佳在宫中担任要职协助治理后宫。'},
-   {name:'教坊首席舞姬',type:'技艺',skill:['胡旋舞','琵琶','作曲','编舞'],desc:'旋转如风中花瓣一曲胡旋舞倾倒万邦来使。'},
-   {name:'茶道仙子',type:'技艺',skill:['茶艺','品鉴','制茶','花道'],desc:'深谙茶道精髓以水为媒以茶会友。'}
-  ],
-  '五代十国':[
-   {name:'江湖侠女',type:'侠义',skill:['双剑','轻功','暗器','易容'],desc:'红衣似火剑如霜行走江湖行侠仗义。'},
-   {name:'隐居才女',type:'文才',skill:['诗词','书画','古琴','棋艺'],desc:'避乱世于深山之中以诗酒自娱。'},
-   {name:'战地女医',type:'医术',skill:['外伤','草药','止血','针灸'],desc:'乱世中背着药箱奔走于战场之间救治伤患。'}
-  ],
-  '宋元':[
-   {name:'婉约女词人',type:'文才',skill:['填词','书画','金石','品茶'],desc:'词作婉约动人被后世称为千古第一才女。'},
-   {name:'丝绸商贾',type:'商贾',skill:['贸易','鉴别','谈判','账房'],desc:'继承家族丝绸生意发展成江南最大的丝绸商号。'},
-   {name:'梨园名角',type:'技艺',skill:['唱腔','身段','编排','乐器'],desc:'登台亮相便满堂喝彩文人墨客争相为你写戏词。'}
-  ],
-  '明朝':[
-   {name:'闺阁才女',type:'文才',skill:['诗文','小说','书画','弹琴'],desc:'身在闺阁心系天下以笔抒怀写下传世之作。'},
-   {name:'名门画师',type:'技艺',skill:['丹青','山水','花鸟','题诗'],desc:'花鸟画栩栩如生山水画意境深远。'},
-   {name:'尼姑庵主持',type:'修行',skill:['诵经','禅修','书法','种药'],desc:'放弃荣华富贵遁入空门潜心修行数十年。'}
-  ],
-  '清朝':[
-   {name:'格格之师',type:'文官',skill:['经史','书画','礼仪','诗词'],desc:'才学深厚被选入宫中教授皇家格格读书识字。'},
-   {name:'景德镇彩绘大师',type:'技艺',skill:['彩绘','釉料','纹饰','设计'],desc:'在瓷胎上描绘精美绝伦的画面一窑出炉便是珍品。'},
-   {name:'茶商千金',type:'商贾',skill:['品茶','制茶','贸易','管理'],desc:'继承家族茶山和茶庄将茶叶生意做到海外。'}
-  ],
-  '民国':[
-   {name:'新女性先锋',type:'思想',skill:['写作','演讲','翻译','社交'],desc:'剪去长发走出闺阁倡导女子独立自主。'},
-   {name:'女医生',type:'医术',skill:['西医','护理','公共卫生','教学'],desc:'国内首批女医生之一在战火中开设医院救治伤患。'},
-   {name:'电影明星',type:'技艺',skill:['表演','歌唱','舞蹈','外语'],desc:'银幕上光彩照人一部电影便能引起万人空巷。'}
-  ]
-};
-var KARMA_GOOD=['积德行善，广结善缘','心地善良，济世为怀','忠孝两全，义薄云天','心怀慈悲，普渡众生','正直无畏，刚正不阿','以德报怨，宽厚待人','舍己为人，大义凛然','勤勉好学，自强不息'];
-var KARMA_BAD=['杀伐果断，造杀孽深重','贪恋权势，不择手段','背信弃义，恩将仇报','纵欲妄为，荒淫无度','嫉妒成性，暗中害人','吝啬贪婪，为富不仁','刚愎自用，听不进忠言','骄傲自满，目中无人'];
-var KARMA_NEUTRAL=['随遇而安，顺其自然','虽有善念亦有私心','时善时恶，善恶参半','不争不抢，平平淡淡','重情重义，但偶尔迷失','心怀大志，却命途多舛'];
-var CAUSE_DEATH=['寿终正寝','病逝','战死沙场','被害殉职','积劳成疾','溺水而亡','遭人陷害','为爱殉情','隐居终老','意外事故','修炼飞升','饮酒过量','思念成疾','含冤而逝','功成身退','不知所踪'];
-var SOUL_TRAITS=['灵魂色彩：纯金色 — 至纯至善','灵魂色彩：深紫色 — 深沉内敛','灵魂色彩：碧蓝色 — 睿智通透','灵魂色彩：赤红色 — 热烈执着','灵魂色彩：翡翠绿 — 生机勃勃','灵魂色彩：银白色 — 空灵脱俗','灵魂色彩：暗金色 — 历经沧桑','灵魂色彩：绯红色 — 情感丰富','灵魂色彩：靛蓝色 — 洞察一切','灵魂色彩：琥珀色 — 温暖包容'];
-var BOND_TYPES=['前世的你与今生某人是主仆关系','前世的你为今生某人挡过一刀','前世的你与今生某人是结拜兄弟/姐妹','前世的你欠今生某人一笔债','前世的你与今生某人是师徒关系','前世的你与今生某人是恋人却未能在一起','前世的你曾救过今生某人的命','前世的你与今生某人是挚友肝胆相照'];
-var INHERITS=['坚韧不拔的意志','敏锐的洞察力','与生俱来的才华','善良正直的品性','强大的生命力','对美好事物的追求','天生的领导力','过人的记忆力'];
 
-function hash(n,s){var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}return((h%Math.abs(n))+Math.abs(n))%n}
-function pick(arr,seed){return arr[hash(arr.length,seed)%arr.length]}
-function pickN(arr,n,seed){var a=[],used={};for(var i=0;i<Math.min(n,arr.length);i++){var idx=hash(arr.length,seed+i*i);while(used[idx]){idx=(idx+1)%arr.length}used[idx]=true;a.push(arr[idx])}return a}
+// 天干五行数
+var GAN_NUM = {'甲':1,'乙':2,'丙':3,'丁':4,'戊':5,'己':6,'庚':7,'辛':8,'壬':9,'癸':10};
+// 地支五行数
+var ZHI_NUM = {'子':1,'丑':2,'寅':3,'卯':4,'辰':5,'巳':6,'午':7,'未':8,'申':9,'酉':10,'戌':11,'亥':12};
 
-function generateReincarnation(name,gender,year,month,day){
-  var seed=name+gender+year+month+day;
-  var eraIdxs=[0,2,7,9,12];
-  var roles=gender==='male'?ROLES_MALE:ROLES_FEMALE;
-  var lives=[];
-  for(var i=0;i<5;i++){
-    var era=ERAS[eraIdxs[i]];
-    var eraName=era.name;
-    var pool=roles[eraName]||roles['隋唐'];
-    var role=pool[hash(pool.length,seed+i*7)%pool.length];
-    var kt=hash(3,seed+'k'+i);
-    var karma=kt===0?pick(KARMA_GOOD,seed+'kg'+i):kt===1?pick(KARMA_BAD,seed+'kb'+i):pick(KARMA_NEUTRAL,seed+'kn'+i);
-    var death=pick(CAUSE_DEATH,seed+'d'+i);
-    var bond=pick(BOND_TYPES,seed+'b'+i);
-    var age=hash(70,seed+'age'+i)+20;
-    var soulTrait=pick(SOUL_TRAITS,seed+'st'+i);
-    lives.push({era:eraName,eraYears:era.years,eraBg:era.bg,identity:role.name,type:role.type,skills:role.skill,desc:role.desc,karma:karma,death:death,bond:bond,age:age,soulTrait:soulTrait,isCurrent:i===4});
-  }
-  return {lives:lives,seed:seed};
+// 十神关系（以日主为基准）
+var SHI_SHEN_MAP = {
+  'same': {'positive':'比肩','negative':'劫财'},
+  'i_sheng': {'positive':'食神','negative':'伤官'},
+  'i_ke': {'positive':'偏财','negative':'正财'},
+  'me_sheng': {'positive':'偏印','negative':'正印'},
+  'me_ke': {'positive':'七杀','negative':'正官'}
+};
+
+// 十二生肖
+var SHENG_XIAO = ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'];
+
+// ===== 八字计算 =====
+function calcYearGZ(year) {
+  var ganIdx = (year - 4) % 10;
+  var zhiIdx = (year - 4) % 12;
+  return {gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[zhiIdx], ganIdx: ganIdx, zhiIdx: zhiIdx};
 }
 
-function renderResult(data,name){
-  var html='<div class="life-timeline">';
-  for(var i=0;i<data.lives.length;i++){
-    var l=data.lives[i];
-    html+='<div class="life-card" style="animation-delay:'+(0.3+i*0.3)+'s">';
-    html+='<div class="life-dot'+(l.isCurrent?' current':'')+'"></div>';
-    html+='<div class="life-card-inner">';
-    html+='<div class="life-era'+(l.isCurrent?' current-era':'')+'">第'+(i+1)+'世 · '+l.era+' · '+l.eraYears+'</div>';
-    html+='<div class="life-identity">'+(l.isCurrent?'➤ ':'')+l.identity+'</div>';
-    html+='<div class="life-desc">'+l.eraBg+'。'+l.desc+'</div>';
-    html+='<div class="life-details">';
-    html+='<div class="life-detail-item"><div class="dl">身份类型</div><div class="dv">'+l.type+'</div></div>';
-    html+='<div class="life-detail-item"><div class="dl">享年</div><div class="dv">'+l.age+'岁</div></div>';
-    html+='<div class="life-detail-item"><div class="dl">因果善恶</div><div class="dv">'+l.karma+'</div></div>';
-    html+='<div class="life-detail-item"><div class="dl">辞世原因</div><div class="dv">'+l.death+'</div></div>';
-    html+='</div>';
-    html+='<div class="life-skill"><span style="color:var(--text-muted);font-size:11px">擅长：</span>';
-    for(var j=0;j<l.skills.length;j++)html+='<span>'+l.skills[j]+'</span>';
-    html+='</div>';
-    html+='<div class="life-quote">「'+l.bond+'」</div>';
-    html+='<div style="margin-top:8px;font-size:11px;color:var(--text-dim)">'+l.soulTrait+'</div>';
-    html+='</div></div>';
-  }
-  var soulScore=hash(41,data.seed+'score')+60;
-  var soulDesc=soulScore>=90?'你的灵魂经历了漫长而丰富的轮回，积累了深厚的善业与智慧。今生你注定不凡，前世的一切苦难与辉煌都化为了今生的力量。':soulScore>=75?'你的灵魂在轮回中不断成长，虽有坎坷但也有辉煌。今生你拥有前世累积的经验与福报，好好把握。':soulScore>=60?'你的灵魂尚在轮回的修行途中，每一世都在学习新的功课。今生是你蜕变的关键时刻。':'灵魂尚在沉睡之中，觉醒需要更多修行。'
-  html+='<div class="life-soul-score"><div class="score-label">灵 魂 累 积 评 分</div><div class="score-num">'+soulScore+'</div><div class="score-desc">'+soulDesc+'</div></div>';
-  var trait=pick(KARMA_GOOD,data.seed+'tr');
-  var inherit=pick(INHERITS,data.seed+'inh');
-  var r1=data.lives[0].identity,r2=data.lives[3].identity;
-  html+='<div class="life-summary"><h3>轮回总悟</h3>';
-  html+='<p>综观五世轮回，'+name+'的灵魂经历了从'+r1+'到'+r2+'的流转。'+trait+'，每一世的经历都为今生留下了深深的印记——'+inherit+'。</p></div>';
-  html+='<div class="btn-area"><button class="btn btn-primary" onclick="location.reload()">◈ 再探一次轮回 ◈</button>';
-  html+='<button class="btn btn-outline" onclick="location.href=\'index.html\'">◈ 返回天命阁 ◈</button></div>';
-  html+='<div class="back-link"><a href="index.html">← 返回首页</a></div>';
-  html+='</div>';
-  document.getElementById('resultSection').innerHTML=html;
+function calcMonthGZ(yearGanIdx, month) {
+  // 年上起月法：甲己之年丙作首，乙庚之年戊为头...
+  var startGanMap = [2, 4, 6, 8, 0, 2, 4, 6, 8, 0]; // 甲->寅月从丙(2)开始
+  var startGan = startGanMap[yearGanIdx];
+  var mZhiIdx = (month + 1) % 12; // 寅=1月->zhiIdx=2
+  var mGanIdx = (startGan + month - 1) % 10;
+  return {gan: TIAN_GAN[mGanIdx], zhi: DI_ZHI[mZhiIdx], ganIdx: mGanIdx, zhiIdx: mZhiIdx};
 }
 
-document.getElementById('startBtn').addEventListener('click',function(){
-  var name=document.getElementById('pName').value.trim();
-  var gender=document.getElementById('pGender').value;
-  var year=document.getElementById('pYear').value;
-  var month=document.getElementById('pMonth').value;
-  var day=document.getElementById('pDay').value;
-  if(!name){alert('请输入您的姓名');return}
-  if(!gender){alert('请选择性别');return}
-  if(!year||!month||!day){alert('请完整填写出生日期');return}
-  document.getElementById('inputSection').style.display='none';
-  var load=document.getElementById('loading');
+function calcDayGZ(year, month, day) {
+  // 简化的日干支计算（以2000年1月7日甲子日为基准偏移）
+  var base = new Date(2000, 0, 7);
+  var target = new Date(year, month - 1, day);
+  var diff = Math.round((target - base) / 86400000);
+  var ganIdx = ((diff % 10) + 10) % 10;
+  var zhiIdx = ((diff % 12) + 12) % 12;
+  return {gan: TIAN_GAN[ganIdx], zhi: DI_ZHI[zhiIdx], ganIdx: ganIdx, zhiIdx: zhiIdx};
+}
+
+function calcHourGZ(dayGanIdx, hourIdx) {
+  // 日上起时法
+  var startGanMap = [0, 2, 4, 6, 8, 0, 2, 4, 6, 8];
+  var startGan = startGanMap[dayGanIdx];
+  var hGanIdx = (startGan + hourIdx) % 10;
+  return {gan: TIAN_GAN[hGanIdx], zhi: DI_ZHI[hourIdx], ganIdx: hGanIdx, zhiIdx: hourIdx};
+}
+
+function getNayin(ganIdx, zhiIdx) {
+  var idx = (ganIdx % 6) * 10 + (zhiIdx % 12);
+  // 纳音索引需要特殊计算
+  var pair = Math.floor(ganIdx / 2) * 12 + zhiIdx;
+  var nayinIdx = pair % 30;
+  return NAYIN[nayinIdx];
+}
+
+function getWXRelation(myWX, otherWX) {
+  if (myWX === otherWX) return 'same';
+  if (WU_XING_SHENG[myWX] === otherWX) return 'i_sheng';
+  if (WU_XING_KE[myWX] === otherWX) return 'i_ke';
+  if (WU_XING_SHENG[otherWX] === myWX) return 'me_sheng';
+  if (WU_XING_KE[otherWX] === myWX) return 'me_ke';
+  return 'same';
+}
+
+function isYangGan(ganIdx) { return ganIdx % 2 === 0; }
+
+function getShiShen(dayGanIdx, ganIdx) {
+  var dayWX = WU_XING_GAN[TIAN_GAN[dayGanIdx]];
+  var otherWX = WU_XING_GAN[TIAN_GAN[ganIdx]];
+  var rel = getWXRelation(dayWX, otherWX);
+  var dayYang = isYangGan(dayGanIdx);
+  var otherYang = isYangGan(ganIdx);
+  var positive = (dayYang === otherYang);
+  return SHI_SHEN_MAP[rel][positive ? 'positive' : 'negative'];
+}
+
+function calcBazi(year, month, day, hourIdx) {
+  var yGZ = calcYearGZ(year);
+  var mGZ = calcMonthGZ(yGZ.ganIdx, month);
+  var dGZ = calcDayGZ(year, month, day);
+  var hGZ = calcHourGZ(dGZ.ganIdx, hourIdx);
+  return {
+    year: yGZ, month: mGZ, day: dGZ, hour: hGZ,
+    yearNayin: getNayin(yGZ.ganIdx, yGZ.zhiIdx),
+    dayNayin: getNayin(dGZ.ganIdx, dGZ.zhiIdx),
+    dayMaster: TIAN_GAN[dGZ.ganIdx],
+    dayMasterWX: WU_XING_GAN[TIAN_GAN[dGZ.ganIdx]]
+  };
+}
+
+// ===== 五行分析 =====
+function analyzeWX(bazi) {
+  var count = {金:0, 木:0, 水:0, 火:0, 土:0};
+  var pillars = [bazi.year, bazi.month, bazi.day, bazi.hour];
+  for (var i = 0; i < pillars.length; i++) {
+    count[WU_XING_GAN[TIAN_GAN[pillars[i].ganIdx]]]++;
+    count[WU_XING_ZHI[pillars[i].zhi]]++;
+  }
+  var max = 0, maxWX = '土';
+  var keys = ['金','木','水','火','土'];
+  for (var i = 0; i < keys.length; i++) {
+    if (count[keys[i]] > max) { max = count[keys[i]]; maxWX = keys[i]; }
+  }
+  var missing = [];
+  for (var i = 0; i < keys.length; i++) {
+    if (count[keys[i]] === 0) missing.push(keys[i]);
+  }
+  return {count:count, dominant: maxWX, missing: missing};
+}
+
+// ===== 轮回推演 =====
+function derivePastLife(lifeNum, bazi, wxAnalysis, gender, name) {
+  var dayWX = bazi.dayMasterWX;
+  var dayGanIdx = bazi.day.ganIdx;
+  var pillars = [bazi.year, bazi.month, bazi.day, bazi.hour];
+  var dominant = wxAnalysis.dominant;
+  var missing = wxAnalysis.missing;
+
+  // 根据八字信息推演各世
+  var lives = [];
+  var eraData = [
+    {name:'远古洪荒',years:'约公元前3000年',bg:'天地混沌初开，万物始生'},
+    {name:'夏商周',years:'约公元前2070-前256年',bg:'青铜文明，礼乐肇始'},
+    {name:'春秋战国',years:'公元前770-前221年',bg:'百家争鸣，诸侯争霸'},
+    {name:'秦汉',years:'公元前221-公元220年',bg:'天下一统，丝路通达'},
+    {name:'三国两晋',years:'公元220-420年',bg:'英雄辈出，乱世风云'}
+  ];
+
+  for (var i = 0; i < 5; i++) {
+    var era = eraData[i];
+    var pillar = pillars[i < 4 ? i : 3];
+    var gan = pillar.gan;
+    var zhi = pillar.zhi;
+    var ganWX = WU_XING_GAN[gan];
+    var zhiWX = WU_XING_ZHI[zhi];
+    var nayin = (i === 0) ? bazi.yearNayin : (i === 2) ? bazi.dayNayin : getNayin(pillar.ganIdx, pillar.zhiIdx);
+    var shiShen = getShiShen(dayGanIdx, pillar.ganIdx);
+
+    // 根据十神和五行推算身份
+    var identity = '', type = '', skill = [], desc = '';
+    var roleSets;
+
+    if (shiShen === '比肩' || shiShen === '劫财') {
+      roleSets = [
+        {id:'chief',identity:'部落首领/一方诸侯',type:'王权',skill:['统领','决策','外交','统御'],desc:'日主'+dayMaster+'属阳刚之气，'+shiShen+'入命，前世为统率一方之领袖。凭借与生俱来的魄力和决断力，在乱世中开疆拓土，令四方臣服。'},
+        {id:'knight',identity:'江湖豪侠/义军领袖',type:'侠义',skill:['武艺','谋略','统兵','号召力'],desc:''+shiShen+'主竞争与自立，前世为不甘平庸之豪杰。以一身正气行走世间，招揽英雄豪杰，征战四方。'},
+        {id:'merchant2',identity:'商界巨擘/丝路富商',type:'商贾',skill:['经商','谈判','鉴宝','管理'],desc:''+shiShen+'旺者精力过人，前世为商海弄潮之舵手。眼光独到，决策果敢，积累了富可敌国之财富。'}
+      ];
+    } else if (shiShen === '食神' || shiShen === '伤官') {
+      roleSets = [
+        {id:'artist',identity:'宫廷大师/传世匠人',type:'技艺',skill:['创造','设计','雕刻','绘画'],desc:''+shiShen+'主才华与表现力，前世为才华横溢之大匠。一生钻研技艺，作品传世不朽。'},
+        {id:'poet',identity:'文豪诗仙/词曲名家',type:'文才',skill:['诗词','书画','音律','著述'],desc:''+shiShen+'入命主才华外露，前世以文采闻名天下。笔落惊风雨，诗成泣鬼神，留下千古传颂之作。'},
+        {id:'musician',identity:'宫廷乐师/梨园宗师',type:'技艺',skill:['作曲','演奏','编舞','传艺'],desc:''+shiShen+'为泄秀之气，前世以艺术天赋立于世。音律精通，所创曲调被世人广为传唱。'}
+      ];
+    } else if (shiShen === '偏财' || shiShen === '正财') {
+      roleSets = [
+        {id:'banker',identity:'富商巨贾/钱庄掌柜',type:'商贾',skill:['经商','理财','人脉','投资'],desc:''+shiShen+'主财富之缘，前世为富甲一方之商贾。善于经营，眼光精准，家财万贯乐善好施。'},
+        {id:'landlord',identity:'封地领主/大地主',type:'贵族',skill:['管理','农桑','收租','御下'],desc:''+shiShen+'旺者衣食丰足，前世为坐拥万亩良田之领主。勤于耕作善于经营，一方百姓赖以为生。'},
+        {id:'trader',identity:'西域行商/茶马古道商',type:'商贾',skill:['贸易','语言','地理','鉴宝'],desc:''+shiShen+'主理财之能，前世为行走丝路之商旅。跋涉千山万水，沟通东西方文明，积累了巨额财富。'}
+      ];
+    } else if (shiShen === '偏印' || shiShen === '正印') {
+      roleSets = [
+        {id:'monk',identity:'高僧大德/隐世修道者',type:'修行',skill:['禅定','讲经','医术','渡人'],desc:''+shiShen+'主庇护与智慧，前世为得道高僧或修道者。潜心修行数十年，功德圆满名垂青史。'},
+        {id:'scholar',identity:'大儒学者/皇家太傅',type:'学术',skill:['经史','讲学','著书','教育'],desc:''+shiShen+'为学术之星，前世为饱学之士。桃李满天下，著作等身，被后世奉为一代宗师。'},
+        {id:'doctor',identity:'名医圣手/太医令',type:'医术',skill:['诊脉','针灸','方剂','炼丹'],desc:''+shiShen+'主庇佑之恩，前世悬壶济世救人无数。医术通神，药到病除，被百姓尊为再生父母。'}
+      ];
+    } else {
+      roleSets = [
+        {id:'general',identity:'镇国大将/沙场统帅',type:'武职',skill:['兵法','骑射','剑术','统军'],desc:''+shiShen+'主权威与压力，前世为征战沙场之名将。一生戎马倥偬，为朝廷镇守边关，功勋卓著。'},
+        {id:'judge',identity:'铁面判官/朝廷御史',type:'文官',skill:['律法','监察','断案','刚正'],desc:''+shiShen+'为管束之星，前世为铁面无私之法官。不畏权贵秉公执法，令贪官污吏闻风丧胆。'},
+        {id:'strategist',identity:'军师谋臣/纵横策士',type:'谋略',skill:['兵法','谋略','观星','游说'],desc:''+shiShen+'主权威之力，前世为运筹帷幄之军师。以一人之智左右天下大局，功成身退名垂青史。'}
+      ];
+    }
+
+    var roleIdx = (pillar.ganIdx + pillar.zhiIdx + i * 3) % roleSets.length;
+    var role = roleSets[roleIdx];
+    if (gender === 'female') {
+      // 女性身份微调
+      var femaleRole = {
+        '部落首领/一方诸侯':'贵族女君/一方女王',
+        '江湖豪侠/义军领袖':'巾帼女将/女中豪杰',
+        '商界巨擘/丝路富商':'商界女杰/丝路女商',
+        '宫廷大师/传世匠人':'宫廷女官/传世女匠',
+        '文豪诗仙/词曲名家':'才女诗人/词曲名家',
+        '宫廷乐师/梨园宗师':'宫廷女乐师/梨园名伶',
+        '富商巨贾/钱庄掌柜':'豪门当家/钱庄女掌柜',
+        '封地领主/大地主':'封地女领主/大地主',
+        '西域行商/茶马古道商':'女行商/丝路女旅',
+        '高僧大德/隐世修道者':'得道女尼/隐世女修行者',
+        '大儒学者/皇家太傅':'才女学者/皇家女傅',
+        '名医圣手/太医令':'女名医/宫廷女医',
+        '镇国大将/沙场统帅':'巾帼名将/女帅',
+        '铁面判官/朝廷御史':'铁面女判官/朝廷女御史',
+        '军师谋臣/纵横策士':'女军师/女谋臣'
+      };
+      if (femaleRole[role.identity]) role.identity = femaleRole[role.identity];
+      if (type === '王权') type = '贵族';
+    }
+
+    // 因果善恶（根据五行旺衰）
+    var karmaOptions;
+    if (ganWX === dominant) {
+      karmaOptions = ['日主'+dayMaster+'（'+dayWX+'）为命局旺气，前世善缘深厚，广结善缘，福报累积。','命局中'+dayWX+'气最旺，前世以'+dayWX+'之德行善，积累了不少善业。'];
+    } else if (missing.indexOf(ganWX) >= 0) {
+      karmaOptions = ['命局缺'+ganWX+'，前世与此行有亏欠，今生需多积'+ganWX+'德以补之。','前世在'+ganWX+'方面有所欠缺，因果循环至今生仍需弥补。'];
+    } else {
+      karmaOptions = ['前世善恶参半，既有善行亦有遗憾，因果交织延续至今。','命局五行较为均衡，前世为中庸之道修行者，善恶皆有。'];
+    }
+
+    // 辞世原因（与五行相关）
+    var deathByWX = {
+      '金': '金气太旺，白虎临命，壮年战死于沙场',
+      '木': '木气郁结，肝经受损，积劳成疾而逝',
+      '水': '水势过盛，坎卦不利，溺水或寒疾而终',
+      '火': '火炎土燥，心血耗尽，含笑坐化而去',
+      '土': '土重掩水，脾胃失调，寿终正寝于家中'
+    };
+    var deathReason = deathByWX[zhiWX] || '寿终正寝，功德圆满';
+
+    // 前世缘分
+    var bondOptions = [
+      '前世的你与今世某人是'+shiShen+'关系——'+shiShen+'主'+getShiShenMeaning(shiShen)+'，此缘延续至今',
+      '前世你欠下'+nayin+'之因果，今生以'+dayWX+'之行来偿还',
+      '前世你修得'+nayin+'之命，此生续缘以完宿愿',
+      '前世的你与'+TIAN_GAN[(dayGanIdx+5)%10]+'有深缘，因果牵连至今生'
+    ];
+
+    // 灵魂特征
+    var soulTrait = '灵魂本命：'+dayMaster+'（'+dayWX+'）'+nayin+' — 命局'+shiShen+'入命，主'+getShiShenMeaning(shiShen);
+
+    var age = 20 + (pillar.ganIdx * 7 + pillar.zhiIdx * 3) % 60;
+
+    lives.push({
+      era: era.name,
+      eraYears: era.years,
+      eraBg: era.bg,
+      identity: role.identity,
+      type: role.type,
+      skills: role.skill,
+      desc: role.desc,
+      karma: karmaOptions[(pillar.ganIdx + pillar.zhiIdx) % karmaOptions.length],
+      death: deathReason,
+      bond: bondOptions[(dayGanIdx + pillar.zhiIdx + i) % bondOptions.length],
+      soulTrait: soulTrait,
+      age: age,
+      nayin: nayin,
+      shiShen: shiShen,
+      pillar: gan + zhi,
+      isCurrent: i === 4
+    });
+  }
+
+  return lives;
+}
+
+function getShiShenMeaning(ss) {
+  var m = {'比肩':'自我与竞争','劫财':'争夺与耗散','食神':'才华与享受','伤官':'才华与叛逆','偏财':'偏门财富','正财':'正当财富','偏印':'偏门智慧','正印':'正统庇护','七杀':'权威与压力','正官':'官职与管理'};
+  return m[ss] || '综合运势';
+}
+
+// ===== 渲染 =====
+function renderResult(name, gender, bazi, wxAnalysis, lives) {
+  var wxClass = WX_CLASS;
+  var html = '';
+
+  // 八字命盘展示
+  html += '<div class="bazi-plate" style="opacity:0;animation:cardIn 0.7s ease-out forwards;">';
+  html += '<h3>◈ 八字命盘 · 命理依据 ◈</h3>';
+  html += '<div class="bazi-grid">';
+  var labels = ['年柱','月柱','日柱','时柱'];
+  var cols = [bazi.year, bazi.month, bazi.day, bazi.hour];
+  for (var i = 0; i < 4; i++) {
+    var gan = TIAN_GAN[cols[i].ganIdx];
+    var zhi = DI_ZHI[cols[i].zhiIdx];
+    var ganWX = WU_XING_GAN[gan];
+    var zhiWX = WU_XING_ZHI[zhi];
+    html += '<div class="bazi-col">';
+    html += '<div class="col-label">' + labels[i] + '</div>';
+    html += '<div class="col-gz">' + gan + zhi + '</div>';
+    html += '<div class="col-wx ' + wxClass[ganWX] + '">' + ganWX + '</div>';
+    html += '<div class="col-wx ' + wxClass[zhiWX] + '">' + zhiWX + '</div>';
+    html += '</div>';
+  }
+  html += '</div>';
+  html += '<div class="wx-info">';
+  html += '<span>日主：' + bazi.dayMaster + '（' + bazi.dayMasterWX + '）</span>';
+  html += '<span>年柱纳音：' + bazi.yearNayin + '</span>';
+  html += '<span>日柱纳音：' + bazi.dayNayin + '</span>';
+  html += '<span>旺衰：' + wxAnalysis.dominant + '旺</span>';
+  if (wxAnalysis.missing.length > 0) {
+    html += '<span>缺：' + wxAnalysis.missing.join('、') + '</span>';
+  }
+  var ss = getShiShen(bazi.day.ganIdx, bazi.year.ganIdx);
+  html += '<span>年柱十神：' + ss + '</span>';
+  html += '</div></div>';
+
+  html += '<div class="divider"><span class="divider-line l"></span><span>◈</span><span class="divider-line r"></span></div>';
+
+  // 五世轮回
+  html += '<div class="life-timeline">';
+  for (var i = 0; i < lives.length; i++) {
+    var l = lives[i];
+    html += '<div class="life-card" style="animation-delay:' + (0.3 + i * 0.3) + 's">';
+    html += '<div class="life-dot' + (l.isCurrent ? ' current' : '') + '"></div>';
+    html += '<div class="life-card-inner">';
+    html += '<div class="life-era' + (l.isCurrent ? ' current-era' : '') + '">第' + (i + 1) + '世 · ' + l.era + ' · ' + l.eraYears + '</div>';
+    html += '<div class="life-identity">' + (l.isCurrent ? '➤ ' : '') + l.identity + '</div>';
+    html += '<div class="life-desc">' + l.desc + '</div>';
+    html += '<div class="life-details">';
+    html += '<div class="life-detail-item"><div class="dl">身份类型</div><div class="dv">' + l.type + '</div></div>';
+    html += '<div class="life-detail-item"><div class="dl">享年</div><div class="dv">' + l.age + '岁</div></div>';
+    html += '<div class="life-detail-item"><div class="dl">命理依据</div><div class="dv">' + l.shiShen + '（' + l.pillar + '）</div></div>';
+    html += '<div class="life-detail-item"><div class="dl">纳音</div><div class="dv">' + l.nayin + '</div></div>';
+    html += '</div>';
+    html += '<div class="life-skill"><span style="color:var(--text-muted);font-size:11px">擅长：</span>';
+    for (var j = 0; j < l.skills.length; j++) {
+      html += '<span>' + l.skills[j] + '</span>';
+    }
+    html += '</div>';
+    html += '<div class="life-bazi-link"><b>因果善恶：</b>' + l.karma + '<br><b>辞世原因：</b>' + l.death + '</div>';
+    html += '<div class="life-quote">「' + l.bond + '」</div>';
+    html += '<div style="margin-top:8px;font-size:11px;color:var(--text-dim)">' + l.soulTrait + '</div>';
+    html += '</div></div>';
+  }
+  html += '</div>';
+
+  // 灵魂总评
+  var score = 60 + (bazi.day.ganIdx * 3 + bazi.year.zhiIdx * 2 + bazi.month.ganIdx) % 35;
+  var scoreDesc = '';
+  if (score >= 85) {
+    scoreDesc = '你的八字命局格局较高，前世积累了丰厚的善业与智慧。日主' + bazi.dayMaster + '属' + bazi.dayMasterWX + '，命带' + (wxAnalysis.missing.length > 0 ? '缺' + wxAnalysis.missing.join('') + '之憾' : '五行流通之象') + '。前世五世修行中，以' + getShiShen(bazi.day.ganIdx, bazi.year.ganIdx) + '入命，注定今生不凡，前世的一切苦难与辉煌都化为了今生的力量。';
+  } else if (score >= 70) {
+    scoreDesc = '你的命局中' + bazi.dayMasterWX + '气适中，前世在轮回中不断成长，虽有坎坷但也有辉煌。纳音' + bazi.dayNayin + '暗示你的灵魂经历过丰富的人生体验，今生拥有前世累积的经验与福报。';
+  } else {
+    scoreDesc = '你的命局五行' + (wxAnalysis.missing.length > 0 ? '偏缺' + wxAnalysis.missing.join('') : '均衡') + '，灵魂尚在修行的中期阶段。日主' + bazi.dayMaster + '的特质将在今生逐渐觉醒，每一世都在学习新的功课。今生是你蜕变的关键时刻。';
+  }
+
+  html += '<div class="life-soul-score" style="opacity:0;animation:cardIn 0.7s ease-out forwards;animation-delay:2s">';
+  html += '<div class="score-label">灵 魂 累 积 评 分</div>';
+  html += '<div class="score-num">' + score + '</div>';
+  html += '<div class="score-desc">' + scoreDesc + '</div>';
+  html += '</div>';
+
+  // 轮回总悟
+  html += '<div class="life-summary" style="opacity:0;animation:cardIn 0.7s ease-out forwards;animation-delay:2.3s">';
+  html += '<h3>轮回总悟</h3>';
+  html += '<p>';
+  html += '综观五世轮回，' + name + '的灵魂经历了从' + lives[0].era + '到' + lives[4].era + '的流转。';
+  html += '日主' + bazi.dayMaster + '（' + bazi.dayMasterWX + '）为本命之根，' + wxAnalysis.dominant + '气主导命局走向。';
+  html += '年柱纳音"' + bazi.yearNayin + '"定前世根基，日柱纳音"' + bazi.dayNayin + '"定今生性情。';
+  html += '五行' + (wxAnalysis.missing.length > 0 ? '缺' + wxAnalysis.missing.join('、') + '，需在今生多加补益' : '流通有情，根基稳固') + '。';
+  html += '每一世的经历——从' + lives[0].identity + '到' + lives[4].identity + '——都是灵魂进化的重要课题，前世的因果延续至今生，成就了此刻的你。';
+  html += '</p></div>';
+
+  html += '<div class="btn-area">';
+  html += '<button class="btn btn-primary" onclick="location.reload()">◈ 再探一次轮回 ◈</button>';
+  html += '<button class="btn btn-outline" onclick="location.href=\'index.html\'">◈ 返回天命阁 ◈</button>';
+  html += '</div>';
+  html += '<div class="back-link"><a href="index.html">← 返回首页</a></div>';
+
+  document.getElementById('resultSection').innerHTML = html;
+}
+
+// ===== 提交 =====
+document.getElementById('startBtn').addEventListener('click', function() {
+  var name = document.getElementById('pName').value.trim();
+  var gender = document.getElementById('pGender').value;
+  var year = document.getElementById('pYear').value;
+  var month = document.getElementById('pMonth').value;
+  var day = document.getElementById('pDay').value;
+  var hourVal = document.getElementById('pHour').value;
+
+  if (!name) { alert('请输入您的姓名'); return; }
+  if (!gender) { alert('请选择性别'); return; }
+  if (!year || !month || !day) { alert('请完整填写出生日期'); return; }
+  if (!hourVal) { alert('请选择出生时辰'); return; }
+
+  var hourIdx = parseInt(hourVal);
+  var bazi = calcBazi(parseInt(year), parseInt(month), parseInt(day), hourIdx);
+  var wxAnalysis = analyzeWX(bazi);
+  var lives = derivePastLife(0, bazi, wxAnalysis, gender, name);
+
+  document.getElementById('inputSection').style.display = 'none';
+  var load = document.getElementById('loading');
   load.classList.add('active');
-  var data=generateReincarnation(name,gender,parseInt(year),parseInt(month),parseInt(day));
-  var texts=['正在打开轮回之门...沟通冥界中...','翻阅生死簿中...追忆前尘往事...','穿越时空隧道...溯游而上...','追寻第一世魂影...渐渐清晰...','五世因果显现...轮回画卷展开...'];
-  var idx=0,loadTxt=document.getElementById('loadTxt'),loadSub=document.getElementById('loadSub');
-  var timer=setInterval(function(){
-    idx=(idx+1)%texts.length;
-    loadTxt.textContent=texts[idx].split('...')[0]+'...';
-    loadSub.textContent=texts[idx].split('...')[1]||'';
-  },1800);
-  setTimeout(function(){
+
+  var texts = [
+    '正在打开轮回之门...沟通冥界中...',
+    '翻阅生死簿中...追忆前尘往事...',
+    '推演八字命盘...追溯五行根基...',
+    '以'+bazi.dayMaster+'日主推演前世因果...',
+    '五世轮回显现...前世画卷展开...'
+  ];
+  var idx = 0;
+  var loadTxt = document.getElementById('loadTxt');
+  var loadSub = document.getElementById('loadSub');
+  var timer = setInterval(function() {
+    idx = (idx + 1) % texts.length;
+    loadTxt.textContent = texts[idx].split('...')[0] + '...';
+    loadSub.textContent = texts[idx].split('...')[1] || '';
+  }, 1800);
+
+  setTimeout(function() {
     clearInterval(timer);
     load.classList.remove('active');
-    renderResult(data,name);
-    var rs=document.getElementById('resultSection');
-    rs.style.display='block';
-    rs.style.opacity='0';
-    setTimeout(function(){rs.style.transition='opacity 0.8s';rs.style.opacity='1';rs.scrollIntoView({behavior:'smooth',block:'start'})},50);
-  },5500);
+    renderResult(name, gender, bazi, wxAnalysis, lives);
+    var rs = document.getElementById('resultSection');
+    rs.style.display = 'block';
+    rs.style.opacity = '0';
+    setTimeout(function() {
+      rs.style.transition = 'opacity 0.8s';
+      rs.style.opacity = '1';
+      rs.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }, 50);
+  }, 5500);
 });
 </script>
 </body>
